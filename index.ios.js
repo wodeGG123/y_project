@@ -11,31 +11,24 @@ import {
   Text,
   View,
 } from 'react-native';
+import App from './app/app.js'
+
 
 export default class y_project extends Component {
    constructor(props){
       super(props);
       this.state = {
-     
+          
       };
    }  
 
   render() {
-    return (
-      <View style={styles.container}>
-
-      </View>
-    );
+    const navigatorConfig = {
+       component: App,
+       title: 'MyApp',
+    }
+    return (<App />);
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
 
 AppRegistry.registerComponent('y_project', () => y_project);
