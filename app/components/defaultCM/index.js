@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import styles from './styles.js';
-
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Main extends Component {
    constructor(props){
@@ -25,5 +25,7 @@ export default class Main extends Component {
     );
   }
 }
-
+Main.contextTypes = {
+  store: React.PropTypes.object
+}
 

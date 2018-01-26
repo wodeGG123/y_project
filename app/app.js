@@ -5,41 +5,20 @@ import {
   Text,
   View,
 } from 'react-native';
-import {StackNavigator} from 'react-navigation';
 
-class App extends Component {
-   constructor(props){
-      super(props);
-      this.state = {
-     
-      };
-   }  
 
-  render() {
-    
-    return (
-      <View style={styles.container}>
-          <Text onPress={()=>{alert(123)}}>default</Text>
-      </View>
-    );
-  }
+import { Provider } from 'react-redux';
+
+import configureStore from './store/ConfigureStore';
+
+import App from './router.js'
+
+const store = configureStore();
+
+export default class Root extends Component {  
+
+    render() {    
+
+        return (<Provider store={store}><App /></Provider>)}
+
 }
-const RootNavigator = StackNavigator({
-  Home: {
-    screen: App,
-    navigationOptions: {
-      headerTitle: 'Home',
-    },
-  },
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
-
-export default RootNavigator;

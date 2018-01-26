@@ -21,12 +21,7 @@ export default class y_project extends Component {
           
       };
    }  
-
   render() {
-    const navigatorConfig = {
-       component: App,
-       title: 'MyApp',
-    }
     return (<App />);
   }
 }

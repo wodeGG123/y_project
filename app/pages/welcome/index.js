@@ -20,7 +20,7 @@ export default class Main extends Component {
     
     return (
       <View style={styles.container}>
-          <Text>default</Text>
+          <Text onPress={()=>{this.props.navigation.navigate('Home')}}>welcome</Text>
       </View>
     );
   }
