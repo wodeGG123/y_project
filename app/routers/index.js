@@ -1,11 +1,13 @@
 import {StackNavigator} from 'react-navigation';
 
 //---
-import Welcome from './pages/welcome/index.js';
-import Home from './pages/home/index.js';
+import Welcome from '../pages/welcome/index.js';
+import Main from './main.js';
+import Member from '../pages/member/index.js';
 
 
 
+//root router
 const RootNavigator = StackNavigator({
   Welcome: {
     screen: Welcome,
@@ -13,8 +15,14 @@ const RootNavigator = StackNavigator({
       header:null
     },
   },
-  Home:{
-  	screen: Home,
+  Index:{
+  	screen: Main,
+    navigationOptions: {
+      header:null
+    },
+  },
+  Login:{
+  	screen: Member,
     navigationOptions: {
       header:null
     },

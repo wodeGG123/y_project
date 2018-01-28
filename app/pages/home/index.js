@@ -6,13 +6,16 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Swiper from 'react-native-swiper';
-import {TopHeader} from '../../components/homeComponents/index.js'
-import {TabNavigator} from 'react-navigation'
 
-export default class Main extends Component {
+//
+
+import styles from './styles.js';
+import {TopHeader, SwitchBar} from '../../components/homeComponents/index.js'
+
+
+class Main extends Component {
    constructor(props){
       super(props);
       this.state = {
@@ -23,10 +26,11 @@ export default class Main extends Component {
     return (
       <View style={styles.container}>
           <TopHeader />
+          <SwitchBar />
           <ScrollView>
             <Swiper style={styles.banner}>
               <View style={styles.slide1}>
-                  <Text style={styles.text}>Hello Swiper</Text>
+                  <Text style={styles.text}>welcome</Text>
               </View>
               <View style={styles.slide2}>
                   <Text style={styles.text}>Beautiful</Text>
@@ -36,7 +40,6 @@ export default class Main extends Component {
               </View>
             </Swiper>
           </ScrollView>
-
       </View>
     );
   }
@@ -45,36 +48,8 @@ Main.contextTypes = {
   store: React.PropTypes.object
 }
 
-const MyTab = TabNavigator({
-    Home: {
-        screen: Home,
-        navigationOptions:{
-            tabBarLabel: '识兔',
-            tabBarIcon: ({tintColor}) => (
-                <Image
-                    source={{uri : '识兔'}}
-                    style={[tabBarIcon, {tintColor: tintColor}]}
-                />
-            ),
-        },
-    },
 
-    }
+export default Main
 
-    {
-    tabBarPosition: 'bottom',
-    swipeEnabled:false,
-    animationEnabled:false,
-    tabBarOptions: {
-        style: {
-            height:49
-        },
-        activeBackgroundColor:'white',
-        activeTintColor:'#4ECBFC',
-        inactiveBackgroundColor:'white',
-        inactiveTintColor:'#aaa',
-        showLabel:false,
-    }
-});
 
 

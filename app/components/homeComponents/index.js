@@ -36,4 +36,46 @@ TopHeader.contextTypes = {
   store: React.PropTypes.object
 }
 
-export {TopHeader} 
+class SwitchBar extends Component{
+    static defaultProps = {
+        items:[{
+            title:'推荐',
+            act:true,
+        },
+        {
+            title:'GMAT',
+            act:false
+        },
+        {
+            title:'高考冲刺',
+            act:false
+        },
+        {
+            title:'TOFEL',
+            act:false
+        },
+        {
+            title:'家庭教育',
+            act:false
+        }
+        ]
+    }
+    constructor(props){
+        super(props);
+        this.state = {
+
+        };
+    }
+    render() {
+
+        return (<View style={styles.switchBar}>
+            {this.props.items.map((obj,index)=>{
+                return (<Text key={index} style={styles.switchBarText}>{obj.title}</Text>)
+            })}
+        </View>);
+    }
+}
+SwitchBar.contextTypes = {
+    store: React.PropTypes.object
+}
+export {TopHeader, SwitchBar}

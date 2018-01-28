@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+// import {
+//   AppRegistry,
+//   StyleSheet,
+//   Text,
+//   View,
+// } from 'react-native';
 
 
 import { Provider } from 'react-redux';
 
 import configureStore from './store/ConfigureStore';
 
-import App from './router.js'
+import App from './routers/index.js'
 
 const store = configureStore();
 

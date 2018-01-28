@@ -49,6 +49,17 @@ const styles = StyleSheet.create({
 	right: 23,
 	top:1,
   },
+    switchBar:{
+        height:44,
+        width:deviceWidth,
+        justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    switchBarText:{
+        color:'#666',
+        marginLeft: 10,
+    },
 });
 
 export default styles
