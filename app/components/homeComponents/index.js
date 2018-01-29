@@ -66,11 +66,15 @@ class SwitchBar extends Component{
 
         };
     }
+    handlePress(index){
+        console.log(this)
+        this.props.navigation.navigate('Course')
+    }
     render() {
 
         return (<View style={styles.switchBar}>
             {this.props.items.map((obj,index)=>{
-                return (<Text key={index} style={styles.switchBarText}>{obj.title}</Text>)
+                return (<View key={index}  style={[styles.switchBarTextView,obj.act?styles.switchBarTextViewAct:{}]}><Text onPress={()=>{this.handlePress(index)}} style={[styles.switchBarText,obj.act?styles.switchBarTextAct:{}]}>{obj.title}</Text></View>)
             })}
         </View>);
     }

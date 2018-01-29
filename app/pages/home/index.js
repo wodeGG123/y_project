@@ -22,11 +22,14 @@ class Main extends Component {
      
       };
    }  
+   componentWillMount() {
+     console.log(this)
+   }
   render() {
     return (
       <View style={styles.container}>
           <TopHeader />
-          <SwitchBar />
+          <SwitchBar navigation={this.props.navigation} />
           <ScrollView>
             <Swiper style={styles.banner}>
               <View style={styles.slide1}>
@@ -40,6 +43,10 @@ class Main extends Component {
               </View>
             </Swiper>
           </ScrollView>
+          <View>
+            
+          </View>
+
       </View>
     );
   }

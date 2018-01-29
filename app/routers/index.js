@@ -3,7 +3,7 @@ import {StackNavigator} from 'react-navigation';
 //---
 import Welcome from '../pages/welcome/index.js';
 import Main from './main.js';
-import Member from '../pages/member/index.js';
+import Member from './member.js';
 
 
 
@@ -12,23 +12,23 @@ const RootNavigator = StackNavigator({
   Welcome: {
     screen: Welcome,
     navigationOptions: {
-      header:null
+      
     },
   },
   Index:{
   	screen: Main,
     navigationOptions: {
-      header:null
+      
     },
   },
-  Login:{
+  Member:{
   	screen: Member,
     navigationOptions: {
-      header:null
+      
     },
   }
 },{
-    headerMode: 'screen',
+    headerMode: 'none',
 });
 
 export default RootNavigator

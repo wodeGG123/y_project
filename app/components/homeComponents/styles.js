@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import Theme from '../../theme.js'
 
 const deviceWidth = Dimensions.get('window').width;      //设备的宽度
 const deviceHeight = Dimensions.get('window').height;    //设备的高度
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
   	flexDirection: 'row',
     alignItems: 'flex-end',
     paddingBottom: 6,
-	paddingLeft: 6,
+	  paddingLeft: 6,
   },
   topSearch:{
 	flex:5,
@@ -31,9 +32,9 @@ const styles = StyleSheet.create({
 	marginLeft: 6
   },
   topRight:{
-	flex:1,
-	height:28,
-	justifyContent: 'center',
+	  flex:1,
+	  height:28,
+	  justifyContent: 'center',
     alignItems: 'center',
     position:'relative',
   },
@@ -56,9 +57,24 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
     },
+    switchBarTextView:{
+        marginLeft: 5,
+        marginRight: 5,
+        height:28,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    switchBarTextViewAct:{
+       borderBottomWidth: 2,
+       borderBottomColor: Theme.color
+    },
     switchBarText:{
         color:'#666',
-        marginLeft: 10,
+        paddingLeft:2,
+        paddingRight: 2,
+    },
+     switchBarTextAct:{
+        color: Theme.color,
     },
 });
 
