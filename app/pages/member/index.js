@@ -11,14 +11,27 @@ import Button from 'apsl-react-native-button'
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
 const deviceWidth = Dimensions.get('window').width;  
+import MemberReq from '../../request/member.js';
 export default class Main extends Component {
    constructor(props){
       super(props);
       this.state = {
-     
+          username:'',
+          password:''
       };
    }  
-
+  handleSubmit(){    
+    MemberReq.Login({
+      username:this.state.username,
+      password:this.state.password
+    })
+    .then((data)=>{console.log(data)})
+  }
+   handleSubmit2(){    
+    let _Token = '74b2VVJWBQQHAlYABQcDVgUGW1ZXAgRdVFIHVwxSAFBRAA'
+    MemberReq.LoginOut(_Token)
+    .then((data)=>{console.log(data)})
+  }
   render() {
     
     return (
@@ -33,10 +46,13 @@ export default class Main extends Component {
                 </View>
                 <View style={styles.memberInputWrap}>
                   <TextInput 
+                    autoCapitalize='none'
                     editable={true} 
                     style={styles.memberInput} 
                     maxLength={11}
-                    placeholder='手机号' 
+                    placeholder='手机号'
+                    value={this.state.username}
+                    onChangeText={(text)=>{this.setState({username:text})}} 
                   />  
                 </View>
                 
@@ -48,17 +64,24 @@ export default class Main extends Component {
                  </View>
                  <View style={styles.memberInputWrap}>
                   <TextInput 
+                    autoCapitalize='none'
                     editable={true} 
                     style={styles.memberInput} 
                     maxLength={16}
                     placeholder='密码' 
+                    value={this.state.password}
+                    onChangeText={(text)=>{this.setState({password:text})}} 
+                    secureTextEntry={true}
                   />  
                  </View>
                  
               </View>
               <View style={styles.memberButtonWrap}>
-                <Button style={styles.memberButton} textStyle={styles.memberButtonText}>
+                <Button onPress={()=>{this.handleSubmit()}} style={styles.memberButton} textStyle={styles.memberButtonText}>
                   登录
+                </Button>
+                 <Button onPress={()=>{this.handleSubmit2()}} style={styles.memberButton} textStyle={styles.memberButtonText}>
+                  登出
                 </Button>
               </View>
               <View style={styles.memberAlertTextBlock}>
@@ -86,7 +109,9 @@ class Regist extends Component {
      
       };
    }  
-
+  handleSubmit(){
+    MemberReq.Regist().then((data)=>{console.log(data)})
+  }
   render() {
     
     return (
@@ -155,7 +180,7 @@ class Regist extends Component {
                  
               </View>
               <View style={styles.memberButtonWrap}>
-                <Button style={styles.memberButton} textStyle={styles.memberButtonText}>
+                <Button onPress={()=>{this.handleSubmit()}} style={styles.memberButton} textStyle={styles.memberButtonText}>
                   注册
                 </Button>
               </View>
