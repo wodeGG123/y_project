@@ -13,10 +13,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-
+	backgroundColor:'#fff',
+  },
+  block:{
+	width:deviceWidth,
+	paddingBottom: 15,
+  },
+  blockHR:{
+	width: deviceWidth,
+	height: 10,
+	backgroundColor:'#f0f0f0',
   },
   banner: {
-	height:200,
+	height:150,
   },
 	slide1: {
 	    flex: 1,
@@ -39,7 +48,14 @@ const styles = StyleSheet.create({
 	text: {
 	    color: '#fff',
 	    fontSize: 30,
-	    fontWeight: 'bold'
+	    fontWeight: 'bold',
+	},
+	firstPbWrap:{
+		paddingLeft: 15,
+	},
+	recommendWrap:{
+		paddingLeft: 15,
+		paddingRight: 15,
 	}
 
 });

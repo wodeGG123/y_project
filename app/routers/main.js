@@ -43,7 +43,7 @@ const Main = TabNavigator({
         navigationOptions:{
           tabBarVisible:true,
           tabBarLabel:'首页',
-            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='md-home' /></View>)}
+            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-home' /></View>)}
         }
     },
     News: {
@@ -51,7 +51,7 @@ const Main = TabNavigator({
         navigationOptions:{
             tabBarVisible:true,
             tabBarLabel:'资讯',
-            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='md-cafe' /></View>)}
+            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-information-circle-outline' /></View>)}
         }
     },
     Course: {
@@ -59,7 +59,7 @@ const Main = TabNavigator({
         navigationOptions:{
             tabBarVisible:true,
             tabBarLabel:'课程',
-            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='md-bookmarks' /></View>)}
+            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-bookmarks-outline' /></View>)}
         }
     },
     ShoppingCar: {
@@ -67,7 +67,7 @@ const Main = TabNavigator({
         navigationOptions:{
             tabBarVisible:true,
             tabBarLabel:'购物车',
-            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='md-cart' /></View>)}
+            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-cart-outline' /></View>)}
         }
     },
     Mine: {
@@ -75,7 +75,7 @@ const Main = TabNavigator({
         navigationOptions:{
             tabBarVisible:true,
             tabBarLabel:'我的',
-            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='md-person' /></View>)}
+            tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-contact-outline' /></View>)}
         }
     },
 
@@ -84,6 +84,9 @@ const Main = TabNavigator({
     animationEnabled: true,
     tabBarOptions: {
         activeTintColor: Theme.color,
+        style: {
+            backgroundColor: '#ffffff',
+          },
     },
 });
 
