@@ -17,13 +17,15 @@ class TopHeader extends Component {
      
       };
    }  
-
+    handlePress(){
+       this.props.navigation.navigate('CourseSearch')
+    }
   render() {
     
     return (<View style={styles.top}> 
             <View style={styles.topSearch}>
               <Icon style={styles.topSearchIcon} size={20} color='#aaaaaa' name='ios-search' />
-              <Text style={styles.topSearchText}>搜索课程</Text>
+              <Text onPress={()=>{this.handlePress()}} style={styles.topSearchText}>搜索课程</Text>
             </View>
             <View style={styles.topRight}>
               <Icon size={22} color='#dddddd' name='md-notifications' />

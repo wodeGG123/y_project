@@ -15,7 +15,8 @@ import Theme from '../theme.js'
 
 import HomeIndex from '../pages/home/index.js';
 import News from '../pages/news/index.js'
-import Course from '../pages/course/index.js'
+import CourseIndex from '../pages/course/index.js'
+import CourseSearch from '../pages/search/index.js'
 import ShoppingCar from '../pages/shoppingCar/index.js'
 import Mine from '../pages/mine/index.js'
 
@@ -33,7 +34,25 @@ const Home = StackNavigator({
     headerMode: 'screen',
 })
 
+//router
+const Course = StackNavigator({
+    CourseIndex : {
+        screen: CourseIndex,
+        navigationOptions: {
+            header:null
+        },
+    },
+    CourseSearch : {
+        screen: CourseSearch,
+        navigationOptions: {
+            header:null
+        },
+    },
 
+},{
+    headerMode: 'screen',
+
+})
 
 
 //routers
@@ -86,6 +105,8 @@ const Main = TabNavigator({
         activeTintColor: Theme.color,
         style: {
             backgroundColor: '#ffffff',
+            borderTopColor:'#eeeeee',
+            borderTopWidth:1,
           },
     },
 });

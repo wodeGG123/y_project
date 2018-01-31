@@ -12,8 +12,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-
+    backgroundColor: '#ffffff',
   },
+    hr:{
+     width:deviceWidth,
+        height:1,
+        backgroundColor:"#eeeeee"
+    },
+    scrollViewWrap:{
+        paddingTop:15
+    },
+    block:{
+        width:deviceWidth,
+        paddingBottom: 15,
+    },
+    recommendWrap:{
+        paddingLeft: 15,
+        paddingRight: 15,
+    }
 });
 
 export default styles

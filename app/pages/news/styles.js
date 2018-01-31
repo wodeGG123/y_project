@@ -10,10 +10,21 @@ const deviceHeight = Dimensions.get('window').height;    //设备的高度
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-
+    backgroundColor:'#ffffff',
   },
+    scrollViewWrap:{
+        paddingTop:15
+    },
+    block:{
+        width:deviceWidth,
+        paddingBottom: 15,
+    },
+    recommendWrap:{
+        paddingLeft: 15,
+        paddingRight: 15,
+    }
 });
 
 export default styles

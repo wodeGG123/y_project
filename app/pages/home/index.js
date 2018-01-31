@@ -29,7 +29,7 @@ class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <TopHeader />
+          <TopHeader navigation={this.props.navigation} />
           <SwitchBar navigation={this.props.navigation} />
           <ScrollView>
             <Swiper style={styles.banner}>
