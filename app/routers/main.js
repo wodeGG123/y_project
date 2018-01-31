@@ -75,11 +75,12 @@ const Main = TabNavigator({
     },
     Course: {
         screen: Course,
-        navigationOptions:{
+        navigationOptions:(navigator)=>({
             tabBarVisible:true,
             tabBarLabel:'课程',
+            tabBarOnPress:(obj)=>{navigator.navigation.navigate('CourseIndex')},
             tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-bookmarks-outline' /></View>)}
-        }
+        })
     },
     ShoppingCar: {
         screen: ShoppingCar,
