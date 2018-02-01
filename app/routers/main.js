@@ -18,7 +18,9 @@ import News from '../pages/news/index.js'
 import CourseIndex from '../pages/course/index.js'
 import CourseSearch from '../pages/search/index.js'
 import ShoppingCar from '../pages/shoppingCar/index.js'
-import Mine from '../pages/mine/index.js'
+import MineIndex from '../pages/mine/index.js'
+import MineOrder from '../pages/order/index.js'
+import LatestStudy from '../pages/latestStudy/index.js'
 
 
 //router
@@ -54,6 +56,32 @@ const Course = StackNavigator({
 
 })
 
+
+//router
+const Mine = StackNavigator({
+    MineIndex : {
+        screen: MineIndex,
+        navigationOptions: {
+            header:null
+        },
+    },
+    MineOrder : {
+        screen: MineOrder,
+        navigationOptions: {
+            header:null
+        },
+    },
+    LatestStudy : {
+        screen: LatestStudy,
+        navigationOptions: {
+            header:null
+        },
+    },
+
+},{
+    headerMode: 'screen',
+
+})
 
 //routers
 const Main = TabNavigator({
@@ -92,11 +120,12 @@ const Main = TabNavigator({
     },
     Mine: {
         screen: Mine,
-        navigationOptions:{
+        navigationOptions:(navigator)=>({
             tabBarVisible:true,
             tabBarLabel:'我的',
+            tabBarOnPress:(obj)=>{navigator.navigation.navigate('MineIndex')},
             tabBarIcon:(param)=>{return(<View style={styles.tabBarIcon}><Icon style={{color:param.tintColor}} size={24} name='ios-contact-outline' /></View>)}
-        }
+        })
     },
 
 }, {

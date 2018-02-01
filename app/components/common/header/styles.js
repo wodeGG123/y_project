@@ -10,17 +10,42 @@ import Theme from '../../../theme.js'
 
 const styles = StyleSheet.create({
   container: {
-      width:deviceWidth,
+      paddingLeft:15,
+      paddingRight:15,
       height:58,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+      flexDirection:'row',
       borderBottomWidth:1,
       borderBottomColor:'#e4e4e4',
-      paddingBottom:10
+      paddingBottom:10,
+      backgroundColor:'#ffffff',
   },
     title:{
-    color:Theme.color,
+        color:Theme.textBlack1,
         fontSize:20
+    },
+    left:{
+        flex:1,
+        justifyContent: 'flex-start',
+        flexDirection:'row',
+        alignItems: 'flex-end',
+    },
+    mid:{
+        flex:4,
+        justifyContent: 'center',
+        flexDirection:'row',
+        alignItems: 'flex-end',
+    },
+    right:{
+        flex:1,
+        justifyContent: 'flex-end',
+        flexDirection:'row',
+        alignItems: 'flex-end',
+    },
+    icon:{
+        position:'relative',
+        top:4,
     }
 });
 

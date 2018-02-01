@@ -18,7 +18,12 @@ class TopHeader extends Component {
       };
    }  
     handlePress(){
-       this.props.navigation.navigate('CourseSearch')
+       this.props.navigation.navigate(
+           'CourseSearch',
+           {
+               preScreen:this.props.navigation.state.routeName
+           }
+       )
     }
   render() {
     
@@ -70,7 +75,6 @@ class SwitchBar extends Component{
         };
     }
     handlePress(index){
-        console.log(this)
         this.props.navigation.navigate('Course')
     }
     render() {

@@ -23,7 +23,22 @@ export default class Main extends Component {
     
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>{this.props.title}</Text>
+
+          <View style={styles.left}>
+          {
+              this.props.left? <Icon style={styles.icon} size={24} color="#666666" name='ios-arrow-back' />:null
+          }
+          </View>
+
+          <View style={styles.mid}>
+              <Text style={styles.title}>{this.props.title}</Text>
+          </View>
+
+          <View style={styles.right}>
+              {this.props.right?<Icon style={styles.icon} size={24} color="#666666" name='ios-arrow-forward' />:null}
+          </View>
+
+
       </View>
     );
   }

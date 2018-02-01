@@ -23,9 +23,7 @@ class Main extends Component {
           data1:[{}]
       };
    }  
-   componentWillMount() {
-     console.log(this)
-   }
+
   render() {
     return (
       <View style={styles.container}>

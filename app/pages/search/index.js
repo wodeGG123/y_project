@@ -22,7 +22,7 @@ export default class Main extends Component {
    }  
 
   render() {
-    
+    console.log(this.props)
     return (
       <View style={styles.container}>
           <SearchHeader navigation={this.props.navigation} />
@@ -81,7 +81,8 @@ class SearchHeader extends Component {
         };
     }
     handleCancel(){
-        this.props.navigation.goBack()
+        //返回页面
+        this.props.navigation.navigate(this.props.navigation.state.params.preScreen)
     }
     render() {
 

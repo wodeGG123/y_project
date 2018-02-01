@@ -3,6 +3,7 @@
  */
 const theme = {
     color:'#24ae8c',
+    color2:'#ff7e00',
     textBlack1:'#333333',
     textBlack2:'#666666',
     textBlack3:'#999999',

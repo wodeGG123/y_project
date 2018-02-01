@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
   	left:0,
   	flexDirection: 'row',
   	alignItems:'center',
-
   },
   lrBlockItemIcon:{
   	position: 'relative' ,
@@ -119,7 +118,101 @@ const styles = StyleSheet.create({
   	fontSize: 12,
   	color:Theme.textBlack3
   },
+    orderBlockWrap:{
+		marginLeft:15,
+		marginRight:15,
+	},
+    orderBlockItem:{
+        marginBottom: 15,
+		backgroundColor:'#ffffff',
+		borderRadius:3,
+	},
+    orderBlockItemTop:{
+		paddingLeft:15,
+		height:44,
+		justifyContent:'flex-start',
+		flexDirection:'row',
+		alignItems:'center',
+		backgroundColor:'#ffffff'
+	},
+    orderBlockItemTopText:{
+  		fontSize:12,
+		color: Theme.textBlack3,
+	},
+    orderBlockItemMid:{
+		justifyContent:'space-between',
+		alignItems:'center',
+		flexDirection:'row',
+		paddingLeft:15,
+		paddingRight:15,
+		paddingBottom:15,
+	},
+    orderBlockItemImageWrap:{
+		width:142,
+		height:86,
+		borderRadius:3,
+		overflow:'hidden',
+	},
+    orderBlockItemImage:{
+        width:142,
+        height:86,
+	},
+    orderBlockItemRight:{
+  		width:160,
+		height:86,
+	},
+    orderBlockItemTitleWrap:{
+  		paddingTop:8,
 
+	},
+    orderBlockItemTitle:{
+  		fontSize:14,
+		color:Theme.textBlack1,
+	},
+    orderBlockItemTextWrap:{
+        position: 'absolute',
+        width:165,
+        height:24,
+        bottom:0,
+        left:0,
+        flexDirection: 'row',
+        alignItems:'center',
+	},
+    orderBlockItemText:{
+        fontSize: 12,
+        color:Theme.textBlack3
+	},
+    orderBlockItemBottom:{
+		height:40,
+		paddingLeft:15,
+		paddingRight:15,
+		borderTopWidth:1,
+		justifyContent:'space-between',
+		alignItems:'center',
+		flexDirection:'row',
+		borderTopColor:'#eeeeee'
+	},
+    orderBlockItemBottomTextWrap:{
+
+	},
+    orderBlockItemBottomText:{
+  		fontSize:12,
+		color:Theme.textBlack3,
+	},
+    orderBlockItemBottomButtonWrap:{
+		height:22
+	},
+    orderBlockItemBottomButton:{
+		backgroundColor:Theme.color2,
+		width:60,
+		height:22,
+		borderWidth:0,
+		borderRadius:3,
+	},
+    orderBlockItemBottomButtonText:{
+		color:'#ffffff',
+		fontSize:12
+	}
 
 });
 
