@@ -17,6 +17,7 @@ import HomeIndex from '../pages/home/index.js';
 import News from '../pages/news/index.js'
 import CourseIndex from '../pages/course/index.js'
 import CourseSearch from '../pages/search/index.js'
+import CourseInfo from '../pages/courseInfo/index.js'
 import ShoppingCar from '../pages/shoppingCar/index.js'
 import MineIndex from '../pages/mine/index.js'
 import MineOrder from '../pages/order/index.js'
@@ -40,6 +41,12 @@ const Home = StackNavigator({
 const Course = StackNavigator({
     CourseIndex : {
         screen: CourseIndex,
+        navigationOptions: {
+            header:null
+        },
+    },
+    CourseInfo : {
+        screen: CourseInfo,
         navigationOptions: {
             header:null
         },

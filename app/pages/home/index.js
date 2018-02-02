@@ -50,7 +50,7 @@ class Main extends Component {
                <View style={styles.blockHR} ></View>
                <View style={styles.block} >
                   <Title text='新课推荐' url='Course' navigation={this.props.navigation} />
-                  <UDBlock style={styles.recommendWrap} />
+                  <UDBlock navigation={this.props.navigation} style={styles.recommendWrap} />
                </View>
               <View style={styles.blockHR} ></View>
                <View style={styles.block} >

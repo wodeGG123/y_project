@@ -5,6 +5,7 @@ import {
   Text,
   View,
   Image,
+  TouchableHighlight,
 } from 'react-native';
 import styles from './styles.js';
 import Button from 'apsl-react-native-button'
@@ -40,19 +41,21 @@ class UDBlock extends Component {
         
       };
    }  
-
+  handlePress(){
+    this.props.navigation.navigate('CourseInfo')
+  }
   render() {
     
     return (<View style={[styles.udBlockWrap,this.props.style]}>
         {
           this.props.data.map((obj,index)=>{
             return (<View key={index} style={styles.udBlockItem}>
-            <View style={styles.udBlockItemImageWrap}>
+            <TouchableHighlight onPress={()=>{this.handlePress()}} style={styles.udBlockItemImageWrap}>
               <Image
               style={styles.udBlockItemImage}
               source={{uri: obj.img}}
               />
-            </View>
+            </TouchableHighlight>
             <View style={styles.udBlockItemTitleWrap}>
               <Text style={styles.udBlockItemTitle}>{obj.title}</Text>
             </View>

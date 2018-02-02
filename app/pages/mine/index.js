@@ -20,8 +20,9 @@ export default class Main extends Component {
     
     return (
       <View style={styles.container}>
-          <Text onPress={()=>{this.props.navigation.navigate('MineOrder')}}>mine</Text>
-          <Text onPress={()=>{this.props.navigation.navigate('LatestStudy')}}>mine</Text>
+          <Text onPress={()=>{this.props.navigation.navigate('MineOrder')}}>MineOrder</Text>
+          <Text onPress={()=>{this.props.navigation.navigate('Login')}}>Login</Text>
+          <Text onPress={()=>{this.props.navigation.navigate('LatestStudy')}}>LatestStudy</Text>
       </View>
     );
   }
