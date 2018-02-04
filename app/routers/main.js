@@ -20,9 +20,9 @@ import CourseSearch from '../pages/search/index.js'
 import CourseInfo from '../pages/courseInfo/index.js'
 import ShoppingCar from '../pages/shoppingCar/index.js'
 import MineIndex from '../pages/mine/index.js'
-import MineOrder from '../pages/order/index.js'
+import MyOrder from '../pages/order/index.js'
 import LatestStudy from '../pages/latestStudy/index.js'
-
+import Setting from '../pages/setting/index.js'
 
 //router
 const Home = StackNavigator({
@@ -72,14 +72,20 @@ const Mine = StackNavigator({
             header:null
         },
     },
-    MineOrder : {
-        screen: MineOrder,
+    MyOrder : {
+        screen: MyOrder,
         navigationOptions: {
             header:null
         },
     },
     LatestStudy : {
         screen: LatestStudy,
+        navigationOptions: {
+            header:null
+        },
+    },
+    Setting : {
+        screen: Setting,
         navigationOptions: {
             header:null
         },

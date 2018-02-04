@@ -3,6 +3,7 @@ import {
   AppRegistry,
   StyleSheet,
     ScrollView,
+    Image,
   Text,
   View,
 } from 'react-native';
@@ -54,7 +55,49 @@ export default class Main extends Component {
                       </View>
                   </View>
                   <View style={styles.introEvaluate}>
-                    
+                      <View style={styles.introEvaluateTop}>
+                          <View style={styles.introEvaluateTopTitleWrap}>
+                              <View>
+                                  <Text style={styles.introEvaluateTopTitleText}>综合评价</Text>
+                              </View>
+                              <View>
+                                  <Text style={styles.introEvaluateTopTitleMarkText}>10.0</Text>
+                              </View>
+                          </View>
+                          <View style={styles.introEvaluateTopEs}>
+                              <View style={styles.introEvaluateTopEsItem}>
+                                  <Text style={styles.introEvaluateTopEsItemText1}>内容实用：</Text><Text style={styles.introEvaluateTopEsItemText2}>10.0</Text>
+                              </View>
+                              <View style={styles.introEvaluateTopEsItem}>
+                                  <Text  style={styles.introEvaluateTopEsItemText1}>通俗易懂：</Text><Text style={styles.introEvaluateTopEsItemText2}>10.0</Text>
+                              </View>
+                              <View style={styles.introEvaluateTopEsItem}>
+                                  <Text  style={styles.introEvaluateTopEsItemText1}>逻辑清晰：</Text><Text style={styles.introEvaluateTopEsItemText2}>10.0</Text>
+                              </View>
+                          </View>
+                      </View>
+                  </View>
+
+                  <View style={styles.introEvaluates}>
+                        <View style={styles.introEvaluatesItem}>
+                            <View style={styles.introEvaluatesItemImageWrap}>
+                                <Image source={{uri: 'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg'}}  style={styles.introEvaluatesItemImage} />
+                            </View>
+                            <View style={styles.introEvaluatesItemRight}>
+                                <View>
+                                    <Text style={styles.introEvaluatesItemRightTitle}>weixin-duan</Text>
+                                    <View style={styles.introEvaluatesItemRightStars}>
+                                        <Icon style={styles.introEvaluatesItemRightStar} name='star' />
+                                    </View>
+                                </View>
+                                <View style={styles.introEvaluatesItemContent}>
+                                    <Text style={styles.introEvaluatesItemContentText}>
+                                        老师讲的很好，通俗易懂
+                                    </Text>
+                                </View>
+                            </View>
+                        </View>
+
                   </View>
               </ScrollView>
               <ScrollView tabLabel="章节" contentContainerStyle={styles.scrollViewWrap} >
