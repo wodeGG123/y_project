@@ -14,7 +14,8 @@ import Theme from '../theme.js'
 
 
 import HomeIndex from '../pages/home/index.js';
-import News from '../pages/news/index.js'
+import NewsIndex from '../pages/news/index.js'
+import NewsInfo from '../pages/newsInfo/index.js'
 import CourseIndex from '../pages/course/index.js'
 import CourseSearch from '../pages/search/index.js'
 import CourseInfo from '../pages/courseInfo/index.js'
@@ -28,6 +29,24 @@ import Setting from '../pages/setting/index.js'
 const Home = StackNavigator({
     HomeIndex : {
         screen: HomeIndex,
+        navigationOptions: {
+            header:null
+        },
+    }
+
+},{
+    headerMode: 'screen',
+})
+//router
+const News = StackNavigator({
+    NewsIndex : {
+        screen: NewsIndex,
+        navigationOptions: {
+            header:null
+        },
+    },
+     NewsInfo : {
+        screen: NewsInfo,
         navigationOptions: {
             header:null
         },

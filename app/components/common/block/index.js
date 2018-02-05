@@ -109,19 +109,21 @@ class LRBlock extends Component {
         
       };
    }  
-
+  handlePress(){
+    this.props.navigation.navigate('NewsInfo')
+  }
   render() {
     
     return (<View style={[styles.lrBlockWrap,this.props.style]}>
         {
           this.props.data.map((obj,index)=>{
             return (<View key={index} style={styles.lrBlockItem}>
-            <View style={styles.lrBlockItemImageWrap}>
+            <TouchableHighlight onPress={()=>{this.handlePress()}} style={styles.lrBlockItemImageWrap}>
               <Image
               style={styles.lrBlockItemImage}
               source={{uri: obj.img}}
               />
-            </View>
+            </TouchableHighlight>
             <View style={styles.lrBlockItemRight}>
               <View style={styles.lrBlockItemTitleWrap}>
                 <Text style={styles.lrBlockItemTitle}>{obj.title}</Text>

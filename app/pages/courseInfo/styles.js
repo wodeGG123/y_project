@@ -13,6 +13,53 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor:'#f0f0f0',
+    position:'relative',
+  },
+  tip:{
+    width:deviceWidth,
+    height:50,
+    borderTopWidth:1,
+    borderTopColor: '#eeeeee',
+    backgroundColor:'#ffffff',
+    paddingLeft:15,
+    paddingRight:15,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection:'row',
+    
+  },
+  tipPrice:{
+    
+  },
+  tipPriceText:{
+    fontSize:16,
+    color:Theme.color3
+  },
+  tipButton:{
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection:'row',
+  },
+  tipCartWrap:{
+    height:50,
+    width:50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:Theme.color
+  },
+  tipCart:{
+    width:26,
+  },
+  tipButtonTextWrap:{
+    width:100,
+    height:50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:Theme.color2
+  },
+  tipButtonText:{
+    fontSize:14,
+    color:'#ffffff',
   },
   top:{
     width:deviceWidth,
@@ -47,6 +94,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingLeft: 15,
     paddingRight: 15,
+    paddingBottom:15,
   },
   introWrap:{
     backgroundColor:'#ffffff',
@@ -140,24 +188,222 @@ const styles = StyleSheet.create({
 
     },
     introEvaluates:{
-        paddingLeft:15,
-        paddingRight:15,
+        
     },
     introEvaluatesItem:{
         justifyContent:'space-between',
         flexDirection:'row',
         alignItems:'flex-start',
+        borderTopWidth: 1,
+        borderTopColor: '#eeeeee',
+        paddingTop:16,
+        paddingBottom:16,
     },
     introEvaluatesItemImageWrap:{
-       width:30,
+       width:40,
 
     },
     introEvaluatesItemImage:{
-        width:30,
-        height:30,
-        borderRadius:15,
+        width:40,
+        height:40,
+        borderRadius:20,
         overflow:'hidden',
+    },
+    introEvaluatesItemRight:{
+        width:250,        
+    },
+    introEvaluatesItemRightTop:{
+        justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    introEvaluatesItemRightTitle:{
+        fontSize:14,
+        color:Theme.textBlack3,
+    },
+    introEvaluatesItemRightStars:{
+      marginLeft:15,
+      justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    introEvaluatesItemRightStar:{
+      marginRight:4,
+    },
+    introEvaluatesItemContent:{
+      marginTop:10,
+      backgroundColor:'#f0f0f0',
+      borderRadius:2,
+      paddingLeft:10,
+      paddingRight:10,
+      paddingTop:4,
+      paddingBottom:4,
+    },
+    introEvaluatesItemContentText:{
+      fontSize:12,
+      color:Theme.textBlack3,
+      lineHeight: 16
+    },
+    sections:{
+       backgroundColor:'#ffffff',
+        borderRadius: 3,
+        overflow: 'hidden',
+        paddingTop: 25,
+        paddingBottom: 10,
+        paddingLeft: 30,
+        paddingRight: 15,
+    },
+    section:{
+        borderLeftWidth: 1,
+        borderLeftColor: '#eeeeee',
+        position:'relative',
+        paddingBottom:10,
+    },
+    sectionMark:{
+        position: 'absolute' ,
+        width:8,
+        height:8,
+        backgroundColor:'#eeeeee',
+        borderRadius:4,
+        left:-4,
+        top:4,
+    },
+    sectionTitle:{
+      paddingLeft:15,
+      justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    sectionTitleText1:{
+      fontSize: 14,
+      color:Theme.textBlack1,
+    },
+    sectionTitleText2:{
+      fontSize: 12,
+      color:Theme.textBlack3,
+      marginLeft:10,
+    },
+    sectionCourses:{
+      paddingLeft:20,
+     
+      paddingTop:15,
+    },
+    sectionCourse:{
+      paddingLeft:10,
+      marginBottom: 8,
+      justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center',
+
+    },
+    courseMark:{
+      position: 'relative' ,
+      top:1,
+    },
+    sectionCourseText:{
+        fontSize:12,
+        color:Theme.textBlack2,
+        marginLeft:6,
+    },
+    consult:{
+      padding:15,
+      backgroundColor:'#ffffff',
+      paddingBottom:30,
+      borderRadius: 3,
+    },
+    consultInputWrap:{
+      height:44,
+      justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center',
+        borderRadius:3,
+        overflow: 'hidden' ,
+    },
+    consultInputLeft:{
+        backgroundColor:'#f0f0f0',
+        flex:1,
+        height:44,
+        justifyContent:'center',
+        alignItems:'center',
+        paddingLeft:15,
+    },
+    consultInput:{
+      width:200,
+      height:24,
+      fontSize:14,
+      color:Theme.textBlack1,
+    },
+    consultInputRight:{
+        width:64,
+        height:44,
+        backgroundColor:Theme.color,
+        justifyContent:'center',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    consultInputRightText:{
+        fontSize:14,
+        color:'#ffffff',
+    },
+    question:{
+        justifyContent:'space-between',
+        flexDirection:'row',
+        alignItems:'flex-start',
+        paddingTop:20,
+    },
+    questionLeft:{
+      width:40,
+    },
+    questionLeftImg:{
+      width:40,
+      height:40,
+      borderRadius:20,
+    },
+    questionMid:{
+      width:210,
+    },
+    questionMidTitleWrap:{
+      justifyContent:'space-between',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    questionMidTitle:{
+      fontSize: 14,
+      color:Theme.textBlack3
+    },
+    questionMidTitleTime:{
+      fontSize:10,
+      color:Theme.textBlack3
+    },
+    questionMidContent:{
+      marginTop:10,
+      backgroundColor:'#f0f0f0',
+      borderRadius:2,
+      paddingLeft:10,
+      paddingRight:10,
+      paddingTop:4,
+      paddingBottom:6,
+    },
+    questionMidContentText:{
+      fontSize:12,
+      color:Theme.textBlack3,
+      lineHeight: 16
+    },
+    questionRight:{
+      width:30,
+
+    },
+    questionRightLike:{
+
+    },
+    questionRightLikeIcon:{
+
+    },
+    questionRightLikeText:{
+      fontSize:12,
+      color:Theme.textBlack3,
     }
+
 });
 
 export default styles
