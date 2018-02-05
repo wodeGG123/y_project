@@ -149,6 +149,93 @@ LRBlock.contextTypes = {
 }
 
 
+class CartBlock extends Component {
+
+    static defaultProps = {
+        data:[{
+            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+            title:'《妖猫传》终极海报绘制报绘制',
+            target:'初三',
+            price:'388.00',
+            url:'',
+        },{
+            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+            title:'《妖猫传》终极海报绘制报绘制',
+            target:'初三',
+            price:'388.00',
+            url:'',
+        },{
+            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+            title:'《妖猫传》终极海报绘制报绘制',
+            target:'初三',
+            price:'388.00',
+            url:'',
+        },{
+            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+            title:'《妖猫传》终极海报绘制报绘制',
+            target:'初三',
+            price:'388.00',
+            url:'',
+        },]
+    }
+
+    constructor(props){
+        super(props);
+        this.state = {
+
+        };
+    }
+    handlePress(){
+        this.props.navigation.navigate('NewsInfo')
+    }
+    render() {
+
+        return (<View style={[styles.cartBlockWrap,this.props.style]}>
+                {
+                    this.props.data.map((obj,index)=>{
+                        return (<View key={index} style={styles.cartBlockItem}>
+                            <View style={styles.cartBlockLeft}>
+                                <View style={styles.cartBlockCheck}>
+                                    <View style={styles.cartBlockCheckCenter}>
+
+                                    </View>
+                                </View>
+                            </View>
+                            <View onPress={()=>{this.handlePress()}} style={styles.cartBlockItemImageWrap}>
+                                <Image
+                                    style={styles.cartBlockItemImage}
+                                    source={{uri: obj.img}}
+                                />
+                            </View>
+                            <View style={styles.cartBlockItemRight}>
+                                <View style={styles.cartBlockItemTitleWrap}>
+                                    <Text style={styles.cartBlockItemTitle}>{obj.title}</Text>
+                                </View>
+                                <View style={styles.cartBlockItemTextWrap}>
+                                    <Text style={styles.cartBlockItemText}>
+                                        针对{obj.target}学生使用
+                                    </Text>
+                                </View>
+                                <View style={styles.cartBlockItemPriceWrap}>
+                                    <Text style={styles.cartBlockItemPrice}>
+                                        {obj.price}
+                                    </Text>
+                                </View>
+                            </View>
+                        </View>)
+                    })
+                }
+
+            </View>
+
+        );
+    }
+}
+CartBlock.contextTypes = {
+    store: React.PropTypes.object
+}
+
+
 
 class OrderBlock extends Component {
 
@@ -227,4 +314,4 @@ OrderBlock.contextTypes = {
     store: React.PropTypes.object
 }
 
-export {UDBlock, LRBlock, OrderBlock}
+export {UDBlock, LRBlock,CartBlock, OrderBlock}

@@ -24,7 +24,8 @@ import MineIndex from '../pages/mine/index.js'
 import MyOrder from '../pages/order/index.js'
 import LatestStudy from '../pages/latestStudy/index.js'
 import Setting from '../pages/setting/index.js'
-
+import Question from '../pages/question/index.js'
+import PersonalInfo from '../pages/personalInfo/index.js'
 //router
 const Home = StackNavigator({
     HomeIndex : {
@@ -105,6 +106,18 @@ const Mine = StackNavigator({
     },
     Setting : {
         screen: Setting,
+        navigationOptions: {
+            header:null
+        },
+    },
+    Question : {
+        screen: Question,
+        navigationOptions: {
+            header:null
+        },
+    },
+    PersonalInfo : {
+        screen: PersonalInfo,
         navigationOptions: {
             header:null
         },

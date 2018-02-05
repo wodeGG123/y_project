@@ -118,6 +118,83 @@ const styles = StyleSheet.create({
   	fontSize: 12,
   	color:Theme.textBlack3
   },
+    cartBlockWrap:{
+  	 paddingLeft:15,
+		paddingRight:15,
+	},
+    cartBlockItem:{
+  		paddingTop:15,
+		paddingBottom:15,
+		justifyContent:'space-between',
+		alignItems:'center',
+		flexDirection:'row',
+		borderBottomColor:'#f0f0f0',
+		borderBottomWidth:1,
+	},
+    cartBlockLeft:{
+  		width:22,
+	},
+    cartBlockCheck:{
+  		width:22,
+		height:22,
+		borderRadius:11,
+		borderWidth:1,
+		borderColor:'#f0f0f0',
+        justifyContent:'center',
+        alignItems:'center',
+	},
+    cartBlockCheckCenter:{
+  		width:12,
+		height:12,
+		borderRadius:6,
+		backgroundColor:Theme.color
+	},
+    cartBlockItemImageWrap:{
+  		width:142,
+		height:86,
+	},
+    cartBlockItemImage:{
+        width:142,
+        height:86,
+		borderRadius:3,
+	},
+    cartBlockItemRight:{
+		width:160,
+        height:86,
+		position:'relative',
+		paddingTop:6,
+	},
+    cartBlockItemTitleWrap:{
+
+	},
+    cartBlockItemTitle:{
+  		fontSize:14,
+		color:Theme.textBlack1
+	},
+    cartBlockItemTextWrap:{
+
+	},
+    cartBlockItemText:{
+  		fontSize:10,
+		color:Theme.textBlack3
+	},
+    cartBlockItemPriceWrap:{
+  		position:'absolute',
+		left:0,
+		bottom:6,
+	},
+    cartBlockItemPrice:{
+		fontSize:12,
+		color:Theme.color2,
+	},
+
+
+
+
+
+
+
+
     orderBlockWrap:{
 		marginLeft:15,
 		marginRight:15,

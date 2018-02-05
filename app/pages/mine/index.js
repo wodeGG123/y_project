@@ -40,7 +40,7 @@ export default class Main extends Component {
                     <Text style={styles.userInfoText}>2135小时</Text>
                   </View>
                   <View style={[styles.userInfoTextWrap,{justifyContent: 'flex-end'}]}>
-                    <Text style={styles.userInfoText}>经      验：</Text>
+                    <Text style={styles.userInfoText}>经验：</Text>
                     <Text style={styles.userInfoText}>6582</Text>
                   </View>
               </View>
@@ -50,7 +50,7 @@ export default class Main extends Component {
               <View style={styles.itemWrap}>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-bookmark-outline'/>
-                      <Text style={styles.itemText}>我的订单</Text>
+                      <Text onPress={()=>{this.props.navigation.navigate('MyOrder')}} style={styles.itemText}>我的订单</Text>
                   </View>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-cart-outline'/>
@@ -66,11 +66,11 @@ export default class Main extends Component {
               <View style={styles.itemWrap}>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-chatbubbles-outline'/>
-                      <Text style={styles.itemText}>答疑解惑</Text>
+                      <Text onPress={()=>{this.props.navigation.navigate('Question')}} style={styles.itemText}>答疑解惑</Text>
                   </View>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-create-outline'/>
-                      <Text style={styles.itemText}>设置</Text>
+                      <Text onPress={()=>{this.props.navigation.navigate('Setting')}} style={styles.itemText}>设置</Text>
                   </View>
               </View>
           </View>

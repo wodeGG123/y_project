@@ -25,7 +25,7 @@ export default class Main extends Component {
               <View style={styles.itemWrap}>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-contact-outline'/>
-                      <Text style={styles.itemText}>个人资料</Text>
+                      <Text onPress={()=>{this.props.navigation.navigate('PersonalInfo')}} style={styles.itemText}>个人资料</Text>
                   </View>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-settings-outline'/>
