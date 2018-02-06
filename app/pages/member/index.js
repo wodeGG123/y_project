@@ -6,12 +6,15 @@ import {
   Text,
   TextInput,
   View,
+  Image,
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
 const deviceWidth = Dimensions.get('window').width;  
 import MemberReq from '../../request/member.js';
+import {THeader} from '../../components/common/header/index.js'
+
 export default class Main extends Component {
    constructor(props){
       super(props);
@@ -21,6 +24,10 @@ export default class Main extends Component {
       };
    }  
   handleSubmit(){    
+
+    
+   
+
     MemberReq.Login({
       username:this.state.username,
       password:this.state.password
@@ -36,17 +43,20 @@ export default class Main extends Component {
     
     return (
       <View style={styles.container}>
-          <View style={styles.loginLogo}>
-            <Text>login logo</Text>
-          </View>
+
+          <Image
+            resizeMode='cover'
+            style={styles.background}
+            source={require('./img/login_back.jpg')}
+           />
+           <THeader title='登录' />
           <View style={styles.memberBlock}>
-              <View style={styles.memberInputBlock}>
-                <View style={styles.memberIconWrap} >
-                  <Icon  style={styles.memberIcon} size={24} name='md-person' />  
-                </View>
+              <View style={styles.memberInputBlock}>                
                 <View style={styles.memberInputWrap}>
                   <TextInput 
                     autoCapitalize='none'
+                    keyboardType='numeric'
+                    placeholderTextColor='rgba(255,255,255,0.6)'
                     editable={true} 
                     style={styles.memberInput} 
                     maxLength={11}
@@ -57,14 +67,11 @@ export default class Main extends Component {
                 </View>
                 
               </View>
-              <View style={{width:deviceWidth-40,borderBottomColor: '#eee',borderBottomWidth: 1}}></View>
               <View style={styles.memberInputBlock}>
-                 <View style={styles.memberIconWrap}>
-                  <Icon style={styles.memberIcon} size={24} name='md-unlock' />
-                 </View>
                  <View style={styles.memberInputWrap}>
                   <TextInput 
                     autoCapitalize='none'
+                    placeholderTextColor='rgba(255,255,255,0.6)'
                     editable={true} 
                     style={styles.memberInput} 
                     maxLength={16}
@@ -89,8 +96,7 @@ export default class Main extends Component {
                   <Text onPress={()=>{this.props.navigation.navigate('Forget')}} style={styles.memberAlertText}>忘记密码？</Text>
                 </View>
                 <View style={styles.memberAlertTextWrap}>
-                  <Text style={styles.memberAlertText}>没有账号，</Text>
-                  <Text onPress={()=>{this.props.navigation.navigate('Regist')}} style={{color:'#3385ff',fontSize: 12}}>立即注册</Text>
+                  <Text style={styles.memberAlertText} onPress={()=>{this.props.navigation.navigate('Regist')}} >没有账号，立即注册</Text>
                 </View>
               </View>
           </View>
@@ -115,64 +121,68 @@ class Regist extends Component {
   render() {
     
     return (
-      <View style={styles.container}>          
+      <View style={styles.container}>
+       <Image
+            resizeMode='cover'
+            style={styles.background}
+            source={require('./img/login_back.jpg')}
+           />         
+           <THeader left={true} title='注册' />
           <View style={styles.memberBlock}>
               <View style={{height:44}}></View>
               <View style={styles.memberInputBlock}>
-                <View style={styles.memberIconWrap} >
-                  <Icon  style={styles.memberIcon} size={24} name='md-person' />  
-                </View>
+                
                 <View style={styles.memberInputWrap}>
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
+                      placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={11}
                     placeholder='手机号' 
                   />  
                 </View>
                 
               </View>
-              <View style={{width:deviceWidth-40,borderBottomColor: '#eee',borderBottomWidth: 1}}></View>
-              <View style={styles.memberInputBlock}>
-                 <View style={styles.memberIconWrap}>
-                  <Icon style={styles.memberIcon} size={24} name='md-code' />
-                 </View>
-                 <View style={styles.memberInputWrap}>
+
+              <View style={styles.memberInputBlock2}>
+                 
+                 <View style={styles.memberInputWrap2}>
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
+                      placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={16}
                     placeholder='验证码' 
                   />  
                  </View>
-                 <Button style={styles.memberSendCode} textStyle={styles.memberSendCodeText}>
-                  发送验证码
-                </Button>
+                 <View style={styles.memberSendCode}>
+                      <Text  style={styles.memberSendCodeText}>
+                        发送验证码
+                      </Text>
+                    </View> 
               </View>
-              <View style={{width:deviceWidth-40,borderBottomColor: '#eee',borderBottomWidth: 1}}></View>
+
               <View style={styles.memberInputBlock}>
-                 <View style={styles.memberIconWrap}>
-                  <Icon style={styles.memberIcon} size={24} name='md-unlock' />
-                 </View>
+                 
                  <View style={styles.memberInputWrap}>
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
+                      placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={16}
                     placeholder='密码' 
                   />  
                  </View>
                  
               </View>
-              <View style={{width:deviceWidth-40,borderBottomColor: '#eee',borderBottomWidth: 1}}></View>
+
               <View style={styles.memberInputBlock}>
-                 <View style={styles.memberIconWrap}>
-                  <Icon style={styles.memberIcon} size={24} name='ios-people' />
-                 </View>
+                 
                  <View style={styles.memberInputWrap}>
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
+                      placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={16}
                     placeholder='代理商码，通过代理的学员请必填' 
                   />  
@@ -183,12 +193,6 @@ class Regist extends Component {
                 <Button onPress={()=>{this.handleSubmit()}} style={styles.memberButton} textStyle={styles.memberButtonText}>
                   注册
                 </Button>
-              </View>
-              <View style={styles.memberAlertTextBlock}>
-                <View style={styles.memberAlertTextWrap}>
-                  <Text style={styles.memberAlertText}>已有账号，立即</Text>
-                  <Text onPress={()=>{this.props.navigation.navigate('Login')}} style={{color:'#3385ff',fontSize: 12}}>登录</Text>
-                </View>
               </View>
           </View>
       </View>
@@ -210,50 +214,55 @@ class Forget extends Component {
   render() {
     
     return (<View style={styles.container}>
+
+            <Image
+            resizeMode='cover'
+            style={styles.background}
+            source={require('./img/login_back.jpg')}
+           />
+           <THeader left={true} title='找回密码' />
             <View style={styles.memberBlock}>
                 <View style={{height:44}}></View>
                 <View style={styles.memberInputBlock}>
-                    <View style={styles.memberIconWrap} >
-                        <Icon  style={styles.memberIcon} size={24} name='md-person' />
-                    </View>
                     <View style={styles.memberInputWrap}>
                         <TextInput
-                            editable={true}
-                            style={styles.memberInput}
-                            maxLength={11}
-                            placeholder='手机号'
+                          autoCapitalize='none'
+                          placeholderTextColor='rgba(255,255,255,0.6)'
+                          editable={true} 
+                          style={styles.memberInput} 
+                          maxLength={11}
+                          placeholder='手机号'
                         />
                     </View>
 
                 </View>
-                <View style={{width:deviceWidth-40,borderBottomColor: '#eee',borderBottomWidth: 1}}></View>
-                <View style={styles.memberInputBlock}>
-                    <View style={styles.memberIconWrap}>
-                        <Icon style={styles.memberIcon} size={24} name='md-code' />
-                    </View>
-                    <View style={styles.memberInputWrap}>
+                <View style={styles.memberInputBlock2}>
+                    <View style={styles.memberInputWrap2}>
                         <TextInput
-                            editable={true}
-                            style={styles.memberInput}
-                            maxLength={16}
+                            autoCapitalize='none'
+                            placeholderTextColor='rgba(255,255,255,0.6)'
+                            editable={true} 
+                            style={styles.memberInput2} 
+                            maxLength={11}
                             placeholder='验证码'
                         />
                     </View>
-                    <Button style={styles.memberSendCode} textStyle={styles.memberSendCodeText}>
+                    <View style={styles.memberSendCode}>
+                      <Text  style={styles.memberSendCodeText}>
                         发送验证码
-                    </Button>
+                      </Text>
+                    </View>                   
                 </View>
-                <View style={{width:deviceWidth-40,borderBottomColor: '#eee',borderBottomWidth: 1}}></View>
                 <View style={styles.memberInputBlock}>
-                    <View style={styles.memberIconWrap}>
-                        <Icon style={styles.memberIcon} size={24} name='md-unlock' />
-                    </View>
                     <View style={styles.memberInputWrap}>
                         <TextInput
-                            editable={true}
-                            style={styles.memberInput}
+                            autoCapitalize='none'
+                            placeholderTextColor='rgba(255,255,255,0.6)'
+                            editable={true} 
+                            style={styles.memberInput} 
                             maxLength={16}
-                            placeholder='填写新密码'
+                            placeholder='填写新密码' 
+                            secureTextEntry={true}
                         />
                     </View>
 
@@ -262,13 +271,7 @@ class Forget extends Component {
                     <Button style={styles.memberButton} textStyle={styles.memberButtonText}>
                         提交
                     </Button>
-                </View>
-                <View style={styles.memberAlertTextBlock}>
-                    <View style={styles.memberAlertTextWrap}>
-                        <Text style={styles.memberAlertText}>已有账号，立即</Text>
-                        <Text onPress={()=>{this.props.navigation.navigate('Login')}} style={{color:'#3385ff',fontSize: 12}}>登录</Text>
-                    </View>
-                </View>
+                </View>                
             </View>
         </View>
     );

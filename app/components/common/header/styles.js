@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
       paddingBottom:10,
       backgroundColor:'#ffffff',
   },
+  
     title:{
         color:Theme.textBlack1,
         fontSize:20
@@ -46,7 +47,25 @@ const styles = StyleSheet.create({
     icon:{
         position:'relative',
         top:4,
-    }
+    },
+    tContainer:{
+    paddingLeft:15,
+      paddingRight:15,
+      height:58,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+      flexDirection:'row',
+      paddingBottom:10,
+      backgroundColor:'transparent',
+      position: 'absolute',
+      left:0,
+      top:0,
+      width:deviceWidth,
+  },
+  tTitle:{
+        color:'rgba(255,255,255,0.6)',
+        fontSize:20
+    },
 });
 
 export default styles

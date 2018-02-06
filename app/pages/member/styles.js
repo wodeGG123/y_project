@@ -6,41 +6,46 @@ import {
 
 const deviceWidth = Dimensions.get('window').width;      //设备的宽度
 const deviceHeight = Dimensions.get('window').height;    //设备的高度
-
+import Theme from '../../theme.js'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  loginLogo:{
-  	width:deviceWidth,
-  	height:200,
-  	justifyContent: 'center',
-    alignItems: 'center',
-  },
-  memberBlock:{
-	  width:deviceWidth-40,
-  },
-  memberInputBlock:{
-  	width:deviceWidth-40,
-  	height:44,
-  	backgroundColor:'#fff',
-    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'relative' ,
   },
-  memberInputWrap:{
-    height:44,
-    justifyContent: 'center',
+  background:{
+    width:deviceWidth,
+    height:deviceHeight,
+    position: 'absolute',
+    left:0,
+    top:0,
+  },
+  memberBlock:{
+	  width:deviceWidth-60,
+  },
+  memberInputBlock:{
+    width:deviceWidth-60,
+    height:50,
+    backgroundColor:'rgba(0,0,0,0.4)',
+    flexDirection: 'row',
     alignItems: 'center',
+    position: 'relative' ,
+    borderRadius: 25,
+    marginBottom: 20,
+  },
+
+  memberInputWrap:{
+    height:50,
+    paddingLeft: 40,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   memberInput:{
     width:240,
     height:30,
   	fontSize: 16,
-  	color:'#666',
-    backgroundColor:'#ffffff',
+  	color:'rgba(255,255,255,0.6)',
   },
   memberIconWrap:{
     width:44,
@@ -52,16 +57,18 @@ const styles = StyleSheet.create({
     color:'#999999',
   },
   memberButtonWrap:{
-    width:deviceWidth-40,
-    marginTop:10
+    width:deviceWidth-60,
+    marginTop: 30,
   },
   memberButton:{
-    backgroundColor: '#3385ff',
-    borderWidth:0
+    backgroundColor: '#ffffff',
+    borderWidth:0,
+    height: 50,
+    borderRadius:25,
   },
   memberButtonText:{
     fontSize: 18,
-    color:'#ffffff'
+    color:Theme.color
   },
   memberAlertTextBlock:{
     width:deviceWidth-40,
@@ -73,24 +80,46 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   memberAlertText:{
-    color:'#999999',
-    fontSize:12
+    color:'rgba(255,255,255,0.6)',
+    fontSize:12,
+    textDecorationLine: 'underline',
+    backgroundColor:'transparent',
   },
   memberSendCode:{
-    position: 'absolute', 
-    right:6,
-    top:6,
-    width:80,
-    height:32,
-    backgroundColor:'#eee',
-    borderWidth:1,
-    borderColor:'#eee',
+    width:120,
+    height: 50,
+    backgroundColor:Theme.color,
+    borderRadius:25,
+    justifyContent:'center',
+    alignItems:'center',
   },
   memberSendCodeText:{
-    fontSize:12,
-    color:'#666'
-  }
-  
+    fontSize:16,
+    color:'#ffffff'
+  },
+   memberInputBlock2:{
+    width:deviceWidth-60,
+    height:50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    justifyContent: 'space-between',
+  },
+  memberInputWrap2:{
+    width:180,
+    height:50,
+    paddingLeft: 40,
+    backgroundColor:'rgba(0,0,0,0.4)',
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+   memberInput2:{
+    width:140,
+    height:30,
+    fontSize: 16,
+    color:'rgba(255,255,255,0.6)',
+  },
 });
 
 export default styles
