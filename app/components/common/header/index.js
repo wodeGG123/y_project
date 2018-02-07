@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableHighlight,
 } from 'react-native';
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -26,7 +27,7 @@ export default class Main extends Component {
 
           <View style={styles.left}>
           {
-              this.props.left? <Icon style={styles.icon} size={24} color="#666666" name='ios-arrow-back' />:null
+              this.props.left? <TouchableHighlight underlayColor='transparent' onPress={()=>{console.log(123)}}><Icon style={styles.icon} size={24} color="#666666" name='ios-arrow-back' /></TouchableHighlight>:null
           }
           </View>
 
@@ -66,7 +67,7 @@ class THeader extends Component {
 
           <View style={styles.left}>
           {
-              this.props.left? <Icon style={styles.icon} size={24} color='rgba(255,255,255,0.6)' name='ios-arrow-back' />:null
+              this.props.left? <TouchableHighlight underlayColor='transparent' onPress={()=>{this.props.navigation.goBack()}}><Icon style={styles.icon} size={24} color='rgba(255,255,255,0.6)' name='ios-arrow-back' /></TouchableHighlight>:null
           }
           </View>
 

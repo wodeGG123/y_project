@@ -21,8 +21,6 @@ Request.post = (url,params)=>{
     for (var i in params){
       _form.append(i,params[i])
     }
-	console.log(_url)
-	console.log(params)
 	return fetch(_url,{
 		method: 'POST',
 		mode:'cors',

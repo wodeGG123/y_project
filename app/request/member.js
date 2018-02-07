@@ -1,7 +1,9 @@
-
-import Storage from 'react-native-storage'
+import {
+  Alert,
+} from 'react-native';
 import Request from './index.js'
 import API from './api.js'
+
 
 let Member = new Object()
 
@@ -14,12 +16,24 @@ Member.Login = (data)=>{
 		    "isToken":true
 		})
 		.then((data)=>{
-			if(data.msg == 'success'){
-				
-			}else{
 
-			}
-			return data;
+			  if(data.msg == 'failed'){
+		        Alert.alert(
+		          '用户名密码或错误！',
+		          '',
+		          [
+		            {text: 'OK', onPress: () => {}},
+		          ],
+		          { cancelable: false }
+		        )
+		        return false
+		      }else{
+				storage.save({
+					key:'userInfo',
+					data:data.data
+				})
+				return true
+		      }
 		})
 }
 Member.LoginOut = (data)=>{
@@ -27,18 +41,25 @@ Member.LoginOut = (data)=>{
 		"accessToken":data
 		})
 }
-Member.Regist = ()=>{
+Member.Regist = (data)=>{
 
 	return Request.post(API.REGIST,{
 		  "type":"mobile",
 		  "SignupForm": {
-		    "email": "dbzhaoxk@163.com",
-		    "mobile": 12345678910,
-		    "password": "123456",
-		    "loginname": "dbzhaoxk"
+		    "email": data.mobile+"@xx.com",
+		    "mobile": parseInt(data.mobile),
+		    "password": data.password,
+		    "loginname": 'X'+data.mobile,
+		    "top_userid": data.top_userid
 		  }
-		}
-)
+		})
+		.then((data)=>{
+			if(data.msg == 'failed'){
+				return data.error
+			}else{
+				return true
+			}
+		})
 
 	
 }

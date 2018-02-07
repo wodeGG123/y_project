@@ -7,6 +7,7 @@ import {
   TextInput,
   View,
   Image,
+  Alert,
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles.js';
@@ -14,6 +15,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 const deviceWidth = Dimensions.get('window').width;  
 import MemberReq from '../../request/member.js';
 import {THeader} from '../../components/common/header/index.js'
+
+
 
 export default class Main extends Component {
    constructor(props){
@@ -24,20 +27,38 @@ export default class Main extends Component {
       };
    }  
   handleSubmit(){    
-
     
-   
-
+    if(this.state.username.trim() == ''){
+        Alert.alert(
+          '手机号不能为空',
+          '',
+          [
+            {text: 'OK', onPress: () => {}},
+          ],
+          { cancelable: false }
+        )
+        return false
+    }
+    if(this.state.password.trim() == ''){
+        Alert.alert(
+          '密码不能为空',
+          '',
+          [
+            {text: 'OK', onPress: () => {}},
+          ],
+          { cancelable: false }
+        )
+        return false 
+    }
+    
     MemberReq.Login({
       username:this.state.username,
       password:this.state.password
     })
-    .then((data)=>{console.log(data)})
-  }
-   handleSubmit2(){    
-    let _Token = '74b2VVJWBQQHAlYABQcDVgUGW1ZXAgRdVFIHVwxSAFBRAA'
-    MemberReq.LoginOut(_Token)
-    .then((data)=>{console.log(data)})
+    .then((data)=>{
+      console.log(data)
+    })
+
   }
   render() {
     
@@ -63,6 +84,7 @@ export default class Main extends Component {
                     placeholder='手机号'
                     value={this.state.username}
                     onChangeText={(text)=>{this.setState({username:text})}} 
+
                   />  
                 </View>
                 
@@ -79,6 +101,7 @@ export default class Main extends Component {
                     value={this.state.password}
                     onChangeText={(text)=>{this.setState({password:text})}} 
                     secureTextEntry={true}
+    
                   />  
                  </View>
                  
@@ -86,9 +109,6 @@ export default class Main extends Component {
               <View style={styles.memberButtonWrap}>
                 <Button onPress={()=>{this.handleSubmit()}} style={styles.memberButton} textStyle={styles.memberButtonText}>
                   登录
-                </Button>
-                 <Button onPress={()=>{this.handleSubmit2()}} style={styles.memberButton} textStyle={styles.memberButtonText}>
-                  登出
                 </Button>
               </View>
               <View style={styles.memberAlertTextBlock}>
@@ -100,6 +120,7 @@ export default class Main extends Component {
                 </View>
               </View>
           </View>
+
       </View>
     );
   }
@@ -112,11 +133,42 @@ class Regist extends Component {
    constructor(props){
       super(props);
       this.state = {
-     
+          mobile:'',
+          code:'',
+          password:'',
+          top_userid:'',
       };
    }  
   handleSubmit(){
-    MemberReq.Regist().then((data)=>{console.log(data)})
+
+    MemberReq.Regist({
+      mobile:this.state.mobile,
+      password:this.state.password,
+      top_userid:this.state.top_userid,
+    }).then((data)=>{
+      console.log(data)
+      if(data == true){
+         Alert.alert(
+          '注册成功！',
+          '',
+          [
+            {text: 'OK', onPress: () => {this.props.navigation.goBack();}},
+          ],
+          { cancelable: false }
+        );
+        
+      }else{
+        Alert.alert(
+          data,
+          '',
+          [
+            {text: 'OK', onPress: () => {}},
+          ],
+          { cancelable: false }
+        )
+      }
+    })
+
   }
   render() {
     
@@ -127,7 +179,7 @@ class Regist extends Component {
             style={styles.background}
             source={require('./img/login_back.jpg')}
            />         
-           <THeader left={true} title='注册' />
+           <THeader left={true} navigation={this.props.navigation} title='注册' />
           <View style={styles.memberBlock}>
               <View style={{height:44}}></View>
               <View style={styles.memberInputBlock}>
@@ -136,9 +188,11 @@ class Regist extends Component {
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
-                      placeholderTextColor='rgba(255,255,255,0.6)'
+                    placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={11}
                     placeholder='手机号' 
+                    value={this.state.mobile}
+                    onChangeText={(text)=>{this.setState({mobile:text})}} 
                   />  
                 </View>
                 
@@ -153,6 +207,8 @@ class Regist extends Component {
                       placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={16}
                     placeholder='验证码' 
+                    value={this.state.code}
+                    onChangeText={(text)=>{this.setState({code:text})}} 
                   />  
                  </View>
                  <View style={styles.memberSendCode}>
@@ -168,9 +224,11 @@ class Regist extends Component {
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
-                      placeholderTextColor='rgba(255,255,255,0.6)'
+                    placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={16}
                     placeholder='密码' 
+                    value={this.state.password}
+                    onChangeText={(text)=>{this.setState({password:text})}} 
                   />  
                  </View>
                  
@@ -182,9 +240,11 @@ class Regist extends Component {
                   <TextInput 
                     editable={true} 
                     style={styles.memberInput} 
-                      placeholderTextColor='rgba(255,255,255,0.6)'
+                    placeholderTextColor='rgba(255,255,255,0.6)'
                     maxLength={16}
                     placeholder='代理商码，通过代理的学员请必填' 
+                    value={this.state.top_userid}
+                    onChangeText={(text)=>{this.setState({top_userid:text})}}
                   />  
                  </View>
                  
