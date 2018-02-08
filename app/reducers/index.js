@@ -2,19 +2,12 @@
 
 import { combineReducers } from 'redux';
 
-var initialState = 0;
-function reducer(state=initialState,action){
-	switch(action.type){
-		case 'TEST' : return ({
-			test:'1'
-		});break;
-		default : break;
-	}
-	return state;
-}
+
+import setUserInfo from './member.js'
+
 
 const rootReducer = combineReducers({
-	reducer,
+	userInfo:setUserInfo,
 });
 
 export default rootReducer

@@ -20,7 +20,7 @@ export default class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Header left={true} title='设置' />
+          <Header left={true} navigation={this.props.navigation} title='设置' />
           <View style={styles.itemsWrap}>
               <View style={styles.itemWrap}>
                   <View style={styles.item}>

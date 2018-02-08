@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Main extends Component {
     static defaultProps = {
-        title:'标题'
+        title:'标题',
     }
    constructor(props){
       super(props);
@@ -19,7 +19,14 @@ export default class Main extends Component {
      
       };
    }  
-
+  handleLeftButton(){
+    console.log(this.props.navigation)
+    this.props.navigation.state.params
+    ?
+    this.props.navigation.navigate(this.props.navigation.state.params.preScreen)
+    :
+    this.props.navigation.goBack()
+  }
   render() {
     
     return (
@@ -27,7 +34,7 @@ export default class Main extends Component {
 
           <View style={styles.left}>
           {
-              this.props.left? <TouchableHighlight underlayColor='transparent' onPress={()=>{console.log(123)}}><Icon style={styles.icon} size={24} color="#666666" name='ios-arrow-back' /></TouchableHighlight>:null
+              this.props.left? <TouchableHighlight underlayColor='transparent' onPress={()=>{this.handleLeftButton()}}><Icon style={styles.icon} size={24} color="#666666" name='ios-arrow-back' /></TouchableHighlight>:null
           }
           </View>
 
@@ -59,7 +66,14 @@ class THeader extends Component {
      
       };
    }  
-
+  handleLeftButton(){
+    console.log(this.props.navigation)
+    this.props.navigation.state.params
+    ?
+    this.props.navigation.navigate(this.props.navigation.state.params.preScreen)
+    :
+    this.props.navigation.goBack()
+  }
   render() {
     
     return (
@@ -67,7 +81,7 @@ class THeader extends Component {
 
           <View style={styles.left}>
           {
-              this.props.left? <TouchableHighlight underlayColor='transparent' onPress={()=>{this.props.navigation.goBack()}}><Icon style={styles.icon} size={24} color='rgba(255,255,255,0.6)' name='ios-arrow-back' /></TouchableHighlight>:null
+              this.props.left? <TouchableHighlight underlayColor='transparent' onPress={()=>{this.handleLeftButton()}}><Icon style={styles.icon} size={24} color='rgba(255,255,255,0.6)' name='ios-arrow-back' /></TouchableHighlight>:null
           }
           </View>
 

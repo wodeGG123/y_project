@@ -17,7 +17,6 @@ import MemberReq from '../../request/member.js';
 import {THeader} from '../../components/common/header/index.js'
 
 
-
 export default class Main extends Component {
    constructor(props){
       super(props);
@@ -56,7 +55,15 @@ export default class Main extends Component {
       password:this.state.password
     })
     .then((data)=>{
-      console.log(data)
+      if(data){     
+        //往store里面注入 userinfo
+       store.dispatch({
+        type: 'SET_USER_INFO',
+        data
+      }); 
+       //登录成功后 跳转页面
+       this.props.navigation.navigate(this.props.navigation.state.params.preScreen)
+      }
     })
 
   }

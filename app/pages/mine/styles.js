@@ -12,7 +12,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-
+    position: 'relative' ,
+  },
+  unLoginWrap:{
+    width:deviceWidth,
+    height:deviceHeight,
+    position:'absolute',
+    left:0,
+    top:0,
   },
 top:{
 	height:180,
@@ -24,7 +31,6 @@ top:{
 user:{
 	justifyContent: 'flex-start',
     alignItems: 'center',
-
 },
 userImg:{
 	width:74,
@@ -85,7 +91,28 @@ userInfoText:{
     itemIcon:{
         position:'relative',
         top:2,
+    },
+    exitWrap:{
+        paddingLeft:15,
+        paddingRight:15,
+        marginTop: 15,
+    },
+    exit:{
+        width:deviceWidth - 30,
+        height:44,
+        borderRadius:3,
+        backgroundColor:Theme.color,
+        justifyContent:'center',
+        alignItems:'center',
+        borderWidth: 0,
+    },
+    exitText:{
+        fontSize:16,
+        color:'#ffffff',
+
     }
+
+
 });
 
 export default styles

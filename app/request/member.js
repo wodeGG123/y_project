@@ -7,6 +7,7 @@ import API from './api.js'
 
 let Member = new Object()
 
+
 Member.Login = (data)=>{
 	return Request.post(API.LOGIN,{
 		"LoginForm":{
@@ -16,7 +17,6 @@ Member.Login = (data)=>{
 		    "isToken":true
 		})
 		.then((data)=>{
-
 			  if(data.msg == 'failed'){
 		        Alert.alert(
 		          '用户名密码或错误！',
@@ -32,13 +32,29 @@ Member.Login = (data)=>{
 					key:'userInfo',
 					data:data.data
 				})
-				return true
+				return data.data
 		      }
 		})
 }
 Member.LoginOut = (data)=>{
+	console.log(data);
 	return Request.post(API.LOGIN_OUT,{
-		"accessToken":data
+		"accessToken":data.toString()
+		})
+	.then((data2)=>{
+		console.log(data2)
+			if(data2.msg == 'failed'){
+				storage.remove({
+					key: 'userInfo'
+				});
+				return false
+			}else{
+				storage.remove({
+					key: 'userInfo'
+				});
+				return data2
+			}
+			
 		})
 }
 Member.Regist = (data)=>{

@@ -5,20 +5,49 @@ import {
   Text,
   View,
   Image,
+  TouchableHighlight,
 } from 'react-native';
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
+import Button from 'apsl-react-native-button'
+import Member from '../../request/member.js'
 
 export default class Main extends Component {
    constructor(props){
       super(props);
       this.state = {
-     
+          userInfo:{
+            nickname:'未登录',
+            sex:0,
+
+          },
+          login:false,
       };
    }  
+  componentWillMount() {
+    let userInfo = store.getState().userInfo;
+    if(userInfo){
+      this.setState({
+        userInfo:userInfo.userinfo,
+        accessToken:userInfo.accessToken,
+        login:true,
+      })
+    }else{
 
+    }
+  }   
+  handleEXIT(){
+    Member.LoginOut(this.state.accessToken)
+    .then((data)=>{
+      if(data.msg == 'failed'){
+
+      }else{
+        this.props.navigation.navigate('Login',{preScreen:'Mine'})
+      }
+    })
+  }
   render() {
-    
+    let userInfo = this.state.userInfo;
     return (
       <View style={styles.container}>
           <View style={styles.top}>
@@ -28,8 +57,8 @@ export default class Main extends Component {
                   source={{uri: 'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg'}}
                 />
                 <View style={styles.userTextWrap}>
-                    <Text style={styles.userText}>DUAN</Text>                  
-                    <Icon style={styles.userSex} size={16} color='#ff7e00' name='md-male' />
+                    <Text style={styles.userText}>{userInfo.nickname||userInfo.mobile}</Text>                  
+                    {userInfo.sex?<Icon style={styles.userSex} size={16} color='#ff7e00' name='md-male' />:<Icon style={styles.userSex} size={16} color='#ff7e00' name='md-female' />}
                 </View>
                 
                 
@@ -75,18 +104,15 @@ export default class Main extends Component {
               </View>
           </View>
           </View>
-
-
-
-
-
-
-
-
-          <Text onPress={()=>{this.props.navigation.navigate('MyOrder')}}>MyOrder</Text>
-          <Text onPress={()=>{this.props.navigation.navigate('Login')}}>Login</Text>
-          <Text onPress={()=>{this.props.navigation.navigate('LatestStudy')}}>LatestStudy</Text>
-          <Text onPress={()=>{this.props.navigation.navigate('Setting')}}>Setting</Text>
+          {
+            this.state.login?<View style={styles.exitWrap} >
+            <Button style={styles.exit} onPress={()=>{this.handleEXIT()}} textStyle={styles.exitText}>退出登录</Button>
+          </View>:null
+          }
+          
+          {
+            !this.state.login?<TouchableHighlight style={styles.unLoginWrap} underlayColor='transparent' onPress={()=>{this.props.navigation.navigate('Login',{preScreen:'Mine'})}}><View style={styles.unLoginWrap}></View></TouchableHighlight>:null
+          }
       </View>
     );
   }
