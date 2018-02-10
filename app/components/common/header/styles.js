@@ -66,6 +66,10 @@ const styles = StyleSheet.create({
         color:'rgba(255,255,255,0.6)',
         fontSize:20
     },
+    mHeaderRightText:{
+      fontSize:12,
+      color:Theme.color,
+    },
 });
 
 export default styles

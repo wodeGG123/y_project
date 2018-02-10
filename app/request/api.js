@@ -3,7 +3,8 @@ let API = {
 	REGIST : 'api/member/reg',
 	LOGIN : 'api/member/login',
 	LOGIN_OUT : 'api/member/logout',
-	COURSE_LIST : 'api/goods/all'
+	COURSE_LIST : 'api/goods/all',
+    EDIT_USERINFO: 'api/member/update',
 }
 
 

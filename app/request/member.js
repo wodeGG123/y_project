@@ -79,5 +79,9 @@ Member.Regist = (data)=>{
 
 	
 }
+Member.edit = (data)=>{
+	return Request.post(API.EDIT_USERINFO,data)
+	.then((data)=>{console.log(data)})
+}
 
 export default Member
