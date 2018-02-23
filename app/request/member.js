@@ -39,7 +39,11 @@ Member.Login = (data)=>{
 Member.LoginOut = (data)=>{
 	console.log(data);
 	return Request.post(API.LOGIN_OUT,{
-		"accessToken":data.toString()
+        "accessToken":data.toString()
+        // "LoginForm":{
+        //     "loginname":'yeshulin',
+        //     "password":'123456'
+        // },
 		})
 	.then((data2)=>{
 		console.log(data2)
@@ -81,7 +85,34 @@ Member.Regist = (data)=>{
 }
 Member.edit = (data)=>{
 	return Request.post(API.EDIT_USERINFO,data)
-	.then((data)=>{console.log(data)})
+	.then((data2)=>{
+        if(data2.msg == 'failed'){
+            return data2.error
+        }else{
+        	//获取全局store里面userinfo的值，修改并保存
+			let userInfo = store.getState().userInfo;
+            userInfo.userinfo[Object.keys(data.Member)[0]] = data.Member[Object.keys(data.Member)[0]]
+			store.dispatch({
+				type:'SET_USER_INFO',
+				data:userInfo
+			});
+            //把store里面的userinfo的值赋给本地存储
+			storage.save({
+				key:'userInfo',
+				data:userInfo
+			})
+            return true
+        }
+	})
+}
+
+Member.resetPWD = (data)=>{
+	console.log(data);
+	return Request.post(API.RESET_PWD,data)
+	.then((data2)=>{
+		console.log(data2)
+		return data2
+	})
 }
 
 export default Member

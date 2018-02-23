@@ -19,13 +19,13 @@ export default class Main extends Component {
           userInfo:{
             nickname:'未登录',
             sex:0,
-
           },
           login:false,
       };
    }  
   componentWillMount() {
     let userInfo = store.getState().userInfo;
+
     if(userInfo){
       this.setState({
         userInfo:userInfo.userinfo,
@@ -38,6 +38,7 @@ export default class Main extends Component {
   }   
   handleEXIT(){
     Member.LoginOut(this.state.accessToken)
+
     .then((data)=>{
       if(data.msg == 'failed'){
 

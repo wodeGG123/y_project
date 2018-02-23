@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   lrBlockItemText:{
   	fontSize: 12,
-  	color:Theme.textBlack3
+  	color:Theme.color
   },
     cartBlockWrap:{
   	 paddingLeft:15,

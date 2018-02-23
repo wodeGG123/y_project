@@ -26,9 +26,13 @@ const styles = StyleSheet.create({
         width:deviceWidth,
         paddingBottom: 15,
     },
-    recommendWrap:{
+    listWrap:{
         paddingLeft: 15,
         paddingRight: 15,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
     }
 });
 

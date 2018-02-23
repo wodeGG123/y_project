@@ -42,7 +42,8 @@ export default class Main extends Component {
     })
     .then((data)=>{
       if(data){
-          let action = Action_setUserInfo(data);          
+          let action = Action_setUserInfo(data);
+          console.log(data)
           store.dispatch(action);
       }
     })

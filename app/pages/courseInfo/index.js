@@ -5,27 +5,66 @@ import {
     ScrollView,
     Image,
     TextInput,
+    TouchableHighlight,
   Text,
   View,
 } from 'react-native';
+import moment from 'moment'
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Theme from '../../theme.js'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
+import Course from '../../request/course.js'
+import Video from 'react-native-video';
+
+
 export default class Main extends Component {
    constructor(props){
       super(props);
       this.state = {
-     
+            data1:false,
+            data2:false
       };
    }  
+    componentWillMount(){
 
+
+        let data1 = store.getState().tempData;
+
+        Course.info({id:data1.course.course_id})
+            .then((data)=>{
+            console.log(data)
+            if(data){
+                this.setState({
+                    data1:data1,
+                    data2:data
+                })
+            }
+
+       })
+    }
+    handlePlay(id){
+        Course.play({id:id})
+            .then((data)=>{
+                console.log(data)
+            })
+    }
   render() {
-    
+        let url = "http://19appsvideo.oss-cn-shanghai.aliyuncs.com/Act-ss-mp4-ld/f610538208314290a960684486a3c9b5/%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E8%A7%86%E9%A2%91.mp4"
     return (
       <View style={styles.container}>
           <View  style={styles.top}>
-              <View style={styles.videoWrap}></View>
+              <View style={styles.videoWrap}>
+                  <Video
+                    source={{uri:url}}
+                    style={styles.video}
+                    resizeMode="cover"
+                    repeat={true}
+                    muted={false}
+                    paused={false}
+                  />
+
+              </View>
               <View style={styles.videoTool}>
                   <View><Icon onPress={()=>{}} style={styles.videoToolIcon} size={20} color='rgba(255,255,255,0.4)' name='ios-close-circle' /></View>
                   {/*<View><Icon style={styles.videoToolIcon} size={26} color='rgba(255,255,255,0.4)' name='ios-send' /></View>*/}
@@ -41,17 +80,17 @@ export default class Main extends Component {
               <ScrollView tabLabel="介绍" contentContainerStyle={styles.scrollViewWrap} >
                   <View style={styles.introWrap}>
                      <View style={styles.introTextWrap}>
-                      <Text style={styles.introText}>2013年6月20日，PHP开发团队自豪地宣布推出PHP 5.5.0。此版本包含了大量的新功能和bug修复。需要开发者特别注意Windows XP 和 2003 系统。</Text> 
+                      <Text style={styles.introText}>{this.state.data1?this.state.data1.course.description:'描述'}</Text>
                      </View>
                       <View style={styles.introEsWrap}>
                         <View style={styles.introEsItem}>
                          <Text style={styles.introEsText}>难度：中级</Text> 
                         </View>
                          <View style={styles.introEsItem}>
-                         <Text style={styles.introEsText}>时长：15小时</Text> 
+                         <Text style={styles.introEsText}>时长：{this.state.data1?moment.duration(parseInt(this.state.data1.course.auth_count_time)).asHours():'0'}小时</Text>
                         </View>
                          <View style={styles.introEsItem}>
-                         <Text style={styles.introEsText}>学习人数：83人</Text> 
+                         <Text style={styles.introEsText}>学习人数：{this.state.data1?this.state.data1.course.learnnumber:'0'}人</Text>
                         </View>
                       </View>
                   </View>
@@ -134,82 +173,33 @@ export default class Main extends Component {
               </ScrollView>
               <ScrollView tabLabel="章节" contentContainerStyle={styles.scrollViewWrap} >
                   <View style={styles.sections}>
-                      <View style={styles.section}>
-                         <View style={styles.sectionMark}></View>                         
-                         <View style={styles.sectionTitle}>
-                           <Text style={styles.sectionTitleText1}>第一章</Text>
-                           <Text style={styles.sectionTitleText2}>课程介绍和课程前置回顾</Text>
-                         </View>
-                         <View style={styles.sectionCourses}>
-                           <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                          <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                         </View>
-                      </View>
-                      <View style={styles.section}>
-                         <View style={styles.sectionMark}></View>                         
-                         <View style={styles.sectionTitle}>
-                           <Text style={styles.sectionTitleText1}>第一章</Text>
-                           <Text style={styles.sectionTitleText2}>课程介绍和课程前置回顾</Text>
-                         </View>
-                         <View style={styles.sectionCourses}>
-                           <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                          <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                         </View>
-                      </View>
-                       <View style={styles.section}>
-                         <View style={styles.sectionMark}></View>                         
-                         <View style={styles.sectionTitle}>
-                           <Text style={styles.sectionTitleText1}>第一章</Text>
-                           <Text style={styles.sectionTitleText2}>课程介绍和课程前置回顾</Text>
-                         </View>
-                         <View style={styles.sectionCourses}>
-                           <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                          <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                         </View>
-                      </View>
-                       <View style={styles.section}>
-                         <View style={styles.sectionMark}></View>                         
-                         <View style={styles.sectionTitle}>
-                           <Text style={styles.sectionTitleText1}>第一章</Text>
-                           <Text style={styles.sectionTitleText2}>课程介绍和课程前置回顾</Text>
-                         </View>
-                         <View style={styles.sectionCourses}>
-                           <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                          <View style={styles.sectionCourse}>
-                           <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
-                           <Text style={styles.sectionCourseText}>1-1</Text>
-                           <Text style={styles.sectionCourseText}>课程介绍</Text>
-                          </View>
-                         </View>
-                      </View>
+                      {
+                          this.state.data2?this.state.data2.map((obj,index)=>{
+                              return (<View key={index} style={styles.section}>
+                                  <View style={styles.sectionMark}></View>
+                                  <View style={styles.sectionTitle}>
+                                      <Text style={styles.sectionTitleText1}>第{index+1}章</Text>
+                                      <Text numberOfLines={1} style={styles.sectionTitleText2}>{obj.name}</Text>
+                                  </View>
+                                  <View style={styles.sectionCourses}>
+                                      {obj.CourseBars.map((obj2,index2)=>{
+                                          return obj2.CourseKnows.map((obj3,index3)=>{
+                                              return(<TouchableHighlight onPress={()=>{this.handlePlay(obj3.knowsid)}} underlayColor='transparent' key={index2+''+index3} >
+                                                  <View style={styles.sectionCourse}>
+                                                  <Icon style={styles.courseMark} name='ios-play' color='#acabaa' size={16} />
+                                                  <Text style={styles.sectionCourseText}>{index2+1}-{index3+1}</Text>
+                                                  <Text numberOfLines={1} style={styles.sectionCourseText}>{obj3.name}</Text>
+                                                  </View>
+                                              </TouchableHighlight>)
+                                          })
+                                      })}
+
+                                  </View>
+                              </View>)
+                          }):null
+                      }
+
+
                   </View>
               </ScrollView>
               <ScrollView tabLabel="咨询" contentContainerStyle={styles.scrollViewWrap} >

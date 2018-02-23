@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     AppRegistry,
     StyleSheet,
+    TextInput,
     Text,
     Modal,
     View,
@@ -17,37 +18,48 @@ class EditModal extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
+            text:'',
         };
     }
-
+    clearText(){
+        this.setState({
+            text:''
+        })
+    }
     render(){
         return (<Modal
             animationType={"slide"}
             transparent={false}
             visible={this.props.visible}
-            onRequestClose={() => {console.log(123)}}
+            onRequestClose={() => {}}
+            onShow={() => {this.clearText()}}
         >
             <View style={styles.container}>
-                <MHeader left={true} right={true} rightPress={()=>{this.props.rightFN()}} leftPress={()=>{this.props.leftFN()}} title={this.props.title} />
+                <MHeader left={true} right={true} rightPress={()=>{this.props.rightFN(this.state.text)}} leftPress={()=>{this.props.leftFN()}} title={this.props.title} />
                 <View style={styles.itemsWrap}>
                     <View style={styles.itemWrap}>
 
                         <View style={styles.item}>
                             <View style={styles.itemLeft}>
-                                <Text style={styles.itemLeftText}>昵称</Text>
+                                <Text style={styles.itemLeftText}>{this.props.title}</Text>
                             </View>
                             <View style={styles.itemMid}>
-                                <Text style={styles.itemMidText}>请输入昵称</Text>
+                                <TextInput
+                                    autoCapitalize='none'
+                                    autoFocus={true}
+                                    maxLength={100}
+                                    style={styles.textInput}
+                                    onChangeText={(text) => this.setState({text})}
+                                    value={this.state.text}
+                                    placeholder={'请输入'+this.props.title}
+                                />
+
                             </View>
                             <View style={styles.itemRight}>
 
                             </View>
 
                         </View>
-
-
-
 
                     </View>
                 </View>

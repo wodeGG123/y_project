@@ -29,7 +29,7 @@ export default class Main extends Component {
                   </View>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-settings-outline'/>
-                      <Text style={styles.itemText}>修改密码</Text>
+                      <Text onPress={()=>{this.props.navigation.navigate('ResetPassword')}}  style={styles.itemText}>修改密码</Text>
                   </View>
                   <View style={styles.item}>
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-notifications-outline'/>

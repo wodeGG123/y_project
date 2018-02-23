@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     borderTopColor: '#eeeeee',
     backgroundColor:'#ffffff',
     paddingLeft:15,
-    paddingRight:15,
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection:'row',
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
   },
   top:{
     width:deviceWidth,
-    height:210,
+    height:230,
     position: 'relative' ,
     paddingTop: 20
   },
@@ -73,6 +72,13 @@ const styles = StyleSheet.create({
     position: 'relative' ,
     backgroundColor:'#000000',
   },
+   video:{
+      position:'absolute',
+       top:0,
+       left:0,
+       right:0,
+       bottom:0,
+   },
   videoTool:{
      width:deviceWidth,
      paddingLeft: 15,

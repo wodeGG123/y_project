@@ -26,6 +26,7 @@ import LatestStudy from '../pages/latestStudy/index.js'
 import Setting from '../pages/setting/index.js'
 import Question from '../pages/question/index.js'
 import PersonalInfo from '../pages/personalInfo/index.js'
+import ResetPassword from '../pages/resetPassword/index.js'
 //router
 const Home = StackNavigator({
     HomeIndex : {
@@ -118,6 +119,12 @@ const Mine = StackNavigator({
     },
     PersonalInfo : {
         screen: PersonalInfo,
+        navigationOptions: {
+            header:null
+        },
+    },
+    ResetPassword : {
+        screen: ResetPassword,
         navigationOptions: {
             header:null
         },

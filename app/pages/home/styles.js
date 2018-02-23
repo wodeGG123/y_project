@@ -27,6 +27,17 @@ const styles = StyleSheet.create({
   banner: {
 	height:150,
   },
+    slide:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+	},
+	slideImg:{
+        flex: 1,
+		height:150,
+		width:deviceWidth
+	},
+
 	slide1: {
 	    flex: 1,
 	    justifyContent: 'center',

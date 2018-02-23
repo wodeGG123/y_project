@@ -10,29 +10,73 @@ import {
 import styles from './styles.js';
 import Button from 'apsl-react-native-button'
 import Icon from 'react-native-vector-icons/Ionicons'
+import API from '../../../request/api.js'
+import moment from 'moment'
+
+
 
 class UDBlock extends Component {
+
+    static defaultProps = {
+        data:{
+            goods_thumb:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+            goods_name:'中考冲刺课程',
+            fitfor:'初三',
+            goods_studied:'262',
+            url:'',
+        }
+    }
+
+    constructor(props){
+        super(props);
+        this.state = {
+
+        };
+    }
+    handlePress(){
+        this.props.navigation.navigate('CourseInfo')
+    }
+    render() {
+        let obj = this.props.data;
+        return (<View style={styles.udBlockItem}>
+                <TouchableHighlight onPress={()=>{this.handlePress()}} style={styles.udBlockItemImageWrap}>
+                    <Image
+                        style={styles.udBlockItemImage}
+                        source={{uri: API.DOMAIN+obj.goods_thumb}}
+                    />
+                </TouchableHighlight>
+                <View style={styles.udBlockItemTitleWrap}>
+                    <Text numberOfLines={1} style={styles.udBlockItemTitle}>{obj.goods_name}</Text>
+                </View>
+                <View style={styles.udBlockItemTextWrap}>
+                    <View style={styles.udBlockItemLeftTextWrap}>
+                        <Text style={styles.udBlockItemLeftText}>针对<Text style={styles.udBlockTextColor}>初三</Text>学生使用</Text>
+                    </View>
+                    <View style={styles.udBlockItemRightTextWrap}>
+                        <Text style={styles.udBlockItemRightText}><Text style={styles.udBlockTextColor}>362</Text>人学习过</Text>
+                    </View>
+                </View>
+
+            </View>
+
+        );
+    }
+}
+UDBlock.contextTypes = {
+    store: React.PropTypes.object
+}
+
+
+class UDBlockList extends Component {
    
    static defaultProps = {
       data:[{
-        img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-        title:'中考冲刺课程',
+          goods_thumb:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+          goods_name:'中考冲刺课程',
         fitfor:'初三',
-        viewed:'262',
+          goods_studied:'262',
         url:'',
-      },{
-        img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-        title:'中考冲刺课程',
-        fitfor:'初三',
-        viewed:'262',
-        url:'',
-      },{
-        img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-        title:'中考冲刺课程',
-        fitfor:'初三',
-        viewed:'262',
-        url:'',
-      }]
+      },]
    }
 
    constructor(props){
@@ -48,16 +92,16 @@ class UDBlock extends Component {
     
     return (<View style={[styles.udBlockWrap,this.props.style]}>
         {
-          this.props.data.map((obj,index)=>{
+            this.props.data?this.props.data.map((obj,index)=>{
             return (<View key={index} style={styles.udBlockItem}>
             <TouchableHighlight onPress={()=>{this.handlePress()}} style={styles.udBlockItemImageWrap}>
               <Image
               style={styles.udBlockItemImage}
-              source={{uri: obj.img}}
+              source={{uri: API.DOMAIN+obj.goods_thumb}}
               />
             </TouchableHighlight>
             <View style={styles.udBlockItemTitleWrap}>
-              <Text style={styles.udBlockItemTitle}>{obj.title}</Text>
+              <Text numberOfLines={1} style={styles.udBlockItemTitle}>{obj.goods_name}</Text>
             </View>
            <View style={styles.udBlockItemTextWrap}>
                <View style={styles.udBlockItemLeftTextWrap}>
@@ -69,7 +113,7 @@ class UDBlock extends Component {
             </View>
 
         </View>)
-          })
+          }):null
         }
         
     </View>
@@ -77,7 +121,7 @@ class UDBlock extends Component {
     );
   }
 }
-UDBlock.contextTypes = {
+UDBlockList.contextTypes = {
   store: React.PropTypes.object
 }
 
@@ -90,17 +134,7 @@ class LRBlock extends Component {
         title:'《妖猫传》终极海报绘制报绘制',
         time:'2018-01-29',
         url:'',
-      },{
-        img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-        title:'《妖猫传》终极海报绘制报绘制',
-        time:'2018-01-29',
-        url:'',
-      },{
-        img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-        title:'《妖猫传》终极海报绘制报绘制',
-        time:'2018-01-29',
-        url:'',
-      }]
+      },]
    }
 
    constructor(props){
@@ -108,7 +142,9 @@ class LRBlock extends Component {
       this.state = {
         
       };
-   }  
+
+   }
+
   handlePress(){
     this.props.navigation.navigate('NewsInfo')
   }
@@ -116,12 +152,12 @@ class LRBlock extends Component {
     
     return (<View style={[styles.lrBlockWrap,this.props.style]}>
         {
-          this.props.data.map((obj,index)=>{
+            this.props.data?this.props.data.map((obj,index)=>{
             return (<View key={index} style={styles.lrBlockItem}>
             <TouchableHighlight onPress={()=>{this.handlePress()}} style={styles.lrBlockItemImageWrap}>
               <Image
               style={styles.lrBlockItemImage}
-              source={{uri: obj.img}}
+              source={obj.img?{uri: obj.img}:require('../../../statics/img/default.jpg')}
               />
             </TouchableHighlight>
             <View style={styles.lrBlockItemRight}>
@@ -131,12 +167,12 @@ class LRBlock extends Component {
               <View style={styles.lrBlockItemTextWrap}>
                 <Icon style={styles.lrBlockItemIcon} size={18} color='#999999' name='ios-time-outline' />
                 <Text style={styles.lrBlockItemText}>
-                {obj.time}
+                {moment(obj.updated_at*1000).format('YYYY-MM-DD')}
                 </Text>
               </View>
             </View>
         </View>)
-          })
+          }):null
         }
         
     </View>
@@ -314,4 +350,4 @@ OrderBlock.contextTypes = {
     store: React.PropTypes.object
 }
 
-export {UDBlock, LRBlock,CartBlock, OrderBlock}
+export {UDBlockList,UDBlock, LRBlock,CartBlock, OrderBlock}

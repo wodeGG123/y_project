@@ -12,16 +12,47 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Button from 'apsl-react-native-button'
 import Theme from '../../theme.js'
+import {EditModal} from '../../components/common/modal/index.js'
+var _ = require('lodash');
+
 export default class Main extends Component {
    constructor(props){
       super(props);
       this.state = {
-     
+          modal:{
+              visible:false,
+              title:'',
+              rightFN:(data)=>{this.saveAnswer(data)},
+              leftFN:()=>{this.closeModal()},
+          }
       };
-   }  
+   }
+    editAnswer(){
+        let modal  = _.cloneDeep(this.state.modal);
+        modal.visible = true;
+        modal.title = '回答';
+        this.setState({
+            modal
+        })
+    }
+    saveAnswer(data){
+        console.log(data)
 
+        let modal  = _.cloneDeep(this.state.modal);
+        modal.visible = false;
+        this.setState({
+            modal
+        })
+    }
+    closeModal(){
+        let modal  = _.cloneDeep(this.state.modal);
+        modal.visible = false;
+        this.setState({
+            modal
+        })
+    }
   render() {
-    
+
     return (
       <View style={styles.container}>
           <Header left={true} title='答疑解惑' />
@@ -42,7 +73,7 @@ export default class Main extends Component {
                                   </Text>
                               </View>
                               <View style={styles.questionButtonWrap}>
-                                  <Button style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
+                                  <Button onPress={()=>{this.editAnswer()}} style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
                               </View>
 
 
@@ -121,7 +152,7 @@ export default class Main extends Component {
 
 
 
-
+        <EditModal {...this.state.modal} />
       </View>
     );
   }

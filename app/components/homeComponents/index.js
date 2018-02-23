@@ -6,9 +6,12 @@ import {
   View,
   Image,
   ScrollView,
+    TouchableHighlight
 } from 'react-native';
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
+import API from '../../request/api.js'
+import {Action_setTempData} from '../../actions/common.js'
 
 class TopHeader extends Component {
    constructor(props){
@@ -122,9 +125,9 @@ Title.contextTypes = {
 class CourseBlock extends Component {
   static defaultProps={
     data:{
-      img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-      text:'高考标准化考试',
-      url:'',
+        goods_thumb:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
+        goods_name:'高考标准化考试',
+        url:'',
     }
      
   }
@@ -133,18 +136,25 @@ class CourseBlock extends Component {
       this.state = {
      
       };
-   }  
+   }
+   handleClick(){
+
+       var action = Action_setTempData(this.props.data)
+       store.dispatch(action)
+       this.props.navigation.navigate('CourseInfo')
+   }
   render() {
     
-    return (<View style={styles.courseBlockWrap}>
-        <Image 
-          style={styles.courseBlockImage}
-          source={{uri: this.props.data.img}}
-        />
-        <View style={styles.courseBlockTextWrap}>
-          <Text style={styles.courseBlockText}>{this.props.data.text}</Text>
-        </View>
-      </View>);
+    return (<TouchableHighlight underlayColor="transparent" onPress={()=>{this.handleClick()}}><View style={styles.courseBlockWrap}>
+            <Image
+              style={styles.courseBlockImage}
+              source={{uri: API.DOMAIN+this.props.data.goods_thumb}}
+            />
+            <View style={styles.courseBlockTextWrap}>
+              <Text numberOfLines={1} style={styles.courseBlockText}>{this.props.data.goods_name}</Text>
+            </View>
+          </View>
+        </TouchableHighlight>);
   }
 }
 CourseBlock.contextTypes = {

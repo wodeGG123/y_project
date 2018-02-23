@@ -3,6 +3,7 @@ import {
   AppRegistry,
   StyleSheet,
     ScrollView,
+    ListView,
   Text,
   View,
 } from 'react-native';
@@ -11,15 +12,27 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 import {TopHeader, SwitchBar } from '../../components/homeComponents/index.js'
 import {UDBlock} from '../../components/common/block/index.js'
+import Course from '../../request/course.js'
 
 export default class Main extends Component {
    constructor(props){
       super(props);
+      var ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 !== r2})
       this.state = {
-     
+            dataSource:ds.cloneWithRows([])
       };
    }  
-
+    componentWillMount(){
+        Course.list()
+            .then((data)=>{
+                console.log(data)
+                if(data){
+                    this.setState({
+                        dataSource:this.state.dataSource.cloneWithRows(data.data)
+                    })
+                }
+            })
+    }
   render() {
     
     return (
@@ -27,11 +40,15 @@ export default class Main extends Component {
           <TopHeader navigation={this.props.navigation} />
           <SwitchBar navigation={this.props.navigation} />
           <View style={styles.hr}></View>
-          <ScrollView contentContainerStyle={styles.scrollViewWrap}>
-              <View style={styles.block} >
-                  <UDBlock style={styles.recommendWrap} />
-              </View>
-          </ScrollView>
+          <ListView
+              enableEmptySections={true}
+              dataSource={this.state.dataSource}
+              onEndReached={()=>{console.log(213)}}
+              onEndReachedThreshold={60}
+              renderRow={(rowData)=> <UDBlock data={rowData} />}
+              contentContainerStyle={styles.listWrap}
+          />
+
       </View>
     );
   }

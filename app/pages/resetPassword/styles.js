@@ -6,13 +6,9 @@ import {
 
 const deviceWidth = Dimensions.get('window').width;      //设备的宽度
 const deviceHeight = Dimensions.get('window').height;    //设备的高度
-import Theme from '../../../theme.js'
+import Theme from '../../theme.js'
+
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     container: {
         flex: 1,
         justifyContent: 'flex-start',
@@ -33,6 +29,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         height:44,
+        borderBottomWidth:1,
+        borderBottomColor:'#f0f0f0',
     },
     itemLeft:{
         flex:2,
@@ -48,6 +46,12 @@ const styles = StyleSheet.create({
         fontSize:14,
         color:Theme.textBlack1,
     },
+    itemMidTextInput:{
+        fontSize:14,
+        color:Theme.textBlack2,
+        width:200,
+        height:30,
+    },
     itemMidText2:{
         fontSize:12,
         color:Theme.textBlack3
@@ -60,11 +64,23 @@ const styles = StyleSheet.create({
         position:'relative',
         top:2,
     },
-    textInput:{
-        height: 30,
+    submitWrap:{
+        paddingLeft:15,
+        paddingRight:15,
+        marginTop: 15,
+    },
+    submit:{
+        width:deviceWidth - 30,
+        height:44,
+        borderRadius:3,
+        backgroundColor:Theme.color,
+        justifyContent:'center',
+        alignItems:'center',
         borderWidth: 0,
-        color:Theme.textBlack1,
-        fontSize:14,
+    },
+    submitText:{
+        fontSize:16,
+        color:'#ffffff',
 
     }
 });
