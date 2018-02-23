@@ -30,7 +30,6 @@ Course.info = (params)=>{
 Course.play = (params)=>{
     return Request.get(API.COURSE_PLAY,params)
 		.then((data)=>{
-    		console.log(data)
 			if(data.msg == 'failed'){
 				return false
 			}else{

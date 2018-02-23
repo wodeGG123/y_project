@@ -87,7 +87,7 @@ class Main extends Component {
                 })}</Swiper>:<View style={styles.banner}></View>}
 
               <View style={styles.block} >
-                 <Title text='新课首发' url='Course' navigation={this.props.navigation} />
+                 <Title text='新课首发' url='CourseIndex' navigation={this.props.navigation} />
                  <ScrollView horizontal={true} contentContainerStyle={styles.firstPbWrap}>
                      {
                          this.state.data1?this.state.data1.map((obj,index)=>{
@@ -98,13 +98,13 @@ class Main extends Component {
               </View>
                <View style={styles.blockHR} ></View>
                <View style={styles.block} >
-                  <Title text='新课推荐' url='Course' navigation={this.props.navigation} />
+                  <Title text='新课推荐' url='CourseIndex' navigation={this.props.navigation} />
                   <UDBlockList data={this.state.data2} navigation={this.props.navigation} style={styles.recommendWrap} />
                </View>
               <View style={styles.blockHR} ></View>
                <View style={styles.block} >
-                  <Title text='行业资讯' url='Course' navigation={this.props.navigation} />
-                  <LRBlock data={this.state.data3} style={styles.recommendWrap} />
+                  <Title text='行业资讯' url='NewsIndex' navigation={this.props.navigation} />
+                  <LRBlock data={this.state.data3} navigation={this.props.navigation} style={styles.recommendWrap} />
                </View>
           </ScrollView>
         

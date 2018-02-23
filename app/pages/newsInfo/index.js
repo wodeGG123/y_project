@@ -21,7 +21,7 @@ export default class Main extends Component {
     
     return (
       <View style={styles.container}>
-            <Header left={true} title='资讯' />
+            <Header left={true} navigation={this.props.navigation} title='资讯' />
             <ScrollView contentContainerStyle={styles.scrollViewWrap}>
                <View style={styles.titleWrap}><Text style={styles.title}>《妖猫传》终极海报绘制过程</Text></View>
                <View style={styles.timeWrap}><Text style={styles.time}>2018-01-29  17:45:00</Text></View>

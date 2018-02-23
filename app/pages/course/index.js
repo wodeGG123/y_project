@@ -25,7 +25,7 @@ export default class Main extends Component {
     componentWillMount(){
         Course.list()
             .then((data)=>{
-                console.log(data)
+
                 if(data){
                     this.setState({
                         dataSource:this.state.dataSource.cloneWithRows(data.data)
@@ -45,7 +45,7 @@ export default class Main extends Component {
               dataSource={this.state.dataSource}
               onEndReached={()=>{console.log(213)}}
               onEndReachedThreshold={60}
-              renderRow={(rowData)=> <UDBlock data={rowData} />}
+              renderRow={(rowData)=> <UDBlock navigation={this.props.navigation} data={rowData} />}
               contentContainerStyle={styles.listWrap}
           />
 

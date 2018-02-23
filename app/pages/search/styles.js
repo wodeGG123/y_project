@@ -14,6 +14,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+    listWrap:{
+        paddingLeft: 15,
+        paddingRight: 15,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
     hr:{
      width:deviceWidth,
         height:1,

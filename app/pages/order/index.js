@@ -24,7 +24,7 @@ export default class Main extends Component {
     
     return (
       <View style={styles.container}>
-          <Header left={true} title='我的订单' />
+          <Header left={true} navigation={this.props.navigation} title='我的订单' />
           <ScrollableTabView
               tabBarUnderlineStyle={{backgroundColor:Theme.color,borderRadius:3,height:3}}
               tabBarBackgroundColor='#ffffff'

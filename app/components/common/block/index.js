@@ -11,6 +11,8 @@ import styles from './styles.js';
 import Button from 'apsl-react-native-button'
 import Icon from 'react-native-vector-icons/Ionicons'
 import API from '../../../request/api.js'
+
+import {Action_setTempData} from '../../../actions/common.js'
 import moment from 'moment'
 
 
@@ -34,7 +36,12 @@ class UDBlock extends Component {
         };
     }
     handlePress(){
+
+
+        var action = Action_setTempData(this.props.data)
+        store.dispatch(action)
         this.props.navigation.navigate('CourseInfo')
+
     }
     render() {
         let obj = this.props.data;

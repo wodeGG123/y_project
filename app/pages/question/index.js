@@ -55,7 +55,7 @@ export default class Main extends Component {
 
     return (
       <View style={styles.container}>
-          <Header left={true} title='答疑解惑' />
+          <Header left={true} navigation={this.props.navigation} title='答疑解惑' />
           <ScrollableTabView
               tabBarUnderlineStyle={{backgroundColor:Theme.color,borderRadius:3,height:3}}
               tabBarBackgroundColor='#ffffff'
@@ -92,7 +92,7 @@ export default class Main extends Component {
                                   </Text>
                               </View>
                               <View style={styles.questionButtonWrap}>
-                                  <Button style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
+                                  <Button onPress={()=>{this.editAnswer()}} style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
                               </View>
 
 
@@ -115,7 +115,7 @@ export default class Main extends Component {
                                   </Text>
                               </View>
                               <View style={styles.questionButtonWrap}>
-                                  <Button style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
+                                  <Button onPress={()=>{this.editAnswer()}} style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
                               </View>
 
 
@@ -134,7 +134,7 @@ export default class Main extends Component {
                                   </Text>
                               </View>
                               <View style={styles.questionButtonWrap}>
-                                  <Button style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
+                                  <Button onPress={()=>{this.editAnswer()}} style={styles.questionButton} textStyle={styles.questionButtonText}>回答</Button>
                               </View>
 
 
