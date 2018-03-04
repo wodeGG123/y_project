@@ -16,6 +16,7 @@ import styles from './styles.js';
 import {TopHeader, SwitchBar, Title, CourseBlock} from '../../components/homeComponents/index.js'
 import {UDBlockList, LRBlock} from '../../components/common/block/index.js'
 import Banner from '../../request/banner.js'
+import Common from '../../request/common.js'
 import Course from '../../request/course.js'
 import Content from '../../request/content.js'
 
@@ -24,14 +25,21 @@ class Main extends Component {
       super(props);
       this.state = {
           banner:false,
+          swichBar:[],
           data1:false,
           data2:false,
           data3:false,
-
       };
    }  
     componentWillMount(){
-
+        //课程分类数据
+        Common.categroy().then((data)=>{
+            if(data){
+                this.setState({
+                    swichBar:data.data
+                })
+            }
+        })
        //banner数据
         Banner.list()
             .then((data)=>{
@@ -63,7 +71,6 @@ class Main extends Component {
         Content.list({pagesize:6})
             .then((data)=>{
                 if(data){
-                    console.log(data)
                     this.setState({
                         data3:data.data
                     })
@@ -74,7 +81,7 @@ class Main extends Component {
     return (
       <View style={styles.container}>
           <TopHeader navigation={this.props.navigation} />
-          <SwitchBar navigation={this.props.navigation} />
+          <SwitchBar items={this.state.swichBar} navigation={this.props.navigation} />
           <ScrollView>
 
                 {this.state.banner?<Swiper style={styles.banner}>{this.state.banner.map((obj,index)=>{

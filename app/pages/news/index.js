@@ -22,7 +22,6 @@ export default class Main extends Component {
     componentWillMount(){
         Content.list()
             .then((data)=>{
-                console.log(data);
                 if(data){
                     this.setState({
                         data:data.data

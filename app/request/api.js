@@ -10,7 +10,14 @@ let API = {
     EDIT_USERINFO: 'api/member/update',
 	RESET_PWD:'api/member/reset-pwd',
 	BANNER:'api/advertisement/get',
-
+	COURSE_CATEGORY:'api/course-config/list',
+	ADD_SHOPPINGCART:'api/cart/cartin?accesstoken=',
+	SHOPPINGCART:'api/cart/cart',
+	ORDER_SUBMIT:'api/order/submit',
+	QA_Q_ADD:'api/question/create',
+	QA_Q_LIST:'api/question/list',
+	QA_A_ADD:'api/answer/create',
+	QA_A_LIST:'api/answer/list',
 }
 
 

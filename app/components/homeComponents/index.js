@@ -49,43 +49,25 @@ TopHeader.contextTypes = {
 
 class SwitchBar extends Component{
     static defaultProps = {
-        items:[{
-            title:'推荐',
-            act:true,
-        },
-        {
-            title:'GMAT',
-            act:false
-        },
-        {
-            title:'高考冲刺',
-            act:false
-        },
-        {
-            title:'TOFEL',
-            act:false
-        },
-        {
-            title:'家庭教育',
-            act:false
-        }
-        ]
+        items:[]
+    }
+    static propTypes = {
+      items:React.PropTypes.array
     }
     constructor(props){
         super(props);
         this.state = {
-
         };
     }
-    handlePress(index){
-        this.props.navigation.navigate('Course')
+    handlePress(id){
+        this.props.navigation.navigate('CourseIndex',{id})
     }
     render() {
-
         return (<View style={styles.switchBar}>
             <ScrollView horizontal={true} contentContainerStyle={styles.switchBarScroll}>
-              {this.props.items.map((obj,index)=>{
-                  return (<View key={index} style={[styles.switchBarTextView,obj.act?styles.switchBarTextViewAct:{}]}><Text onPress={()=>{this.handlePress(index)}} style={[styles.switchBarText,obj.act?styles.switchBarTextAct:{}]}>{obj.title}</Text></View>)
+            <View style={[styles.switchBarTextView,styles.switchBarTextViewAct]}><Text style={[styles.switchBarText,styles.switchBarTextAct]}>首页</Text></View>
+              {this.props.items&&this.props.items.map((obj,index)=>{
+                  return (<View key={index} style={styles.switchBarTextView}><Text onPress={()=>{this.handlePress(obj.course_config_id)}} style={styles.switchBarText}>{obj.name}</Text></View>)
               })}
             </ScrollView>
         </View>);

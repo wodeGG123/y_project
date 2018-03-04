@@ -12,10 +12,13 @@ import {
 import moment from 'moment'
 import styles from './styles.js';
 import Icon from 'react-native-vector-icons/Ionicons'
-import Theme from '../../theme.js'
+import VideoPlayer from 'react-native-video-player';
 import ScrollableTabView from 'react-native-scrollable-tab-view'
+import Theme from '../../theme.js'
+
 import Course from '../../request/course.js'
-import Video from 'react-native-video';
+import ShoppingCar from '../../request/shoppingCart.js'
+import Order from '../../request/order.js'
 
 
 export default class Main extends Component {
@@ -23,21 +26,23 @@ export default class Main extends Component {
       super(props);
       this.state = {
             data1:false,
-            data2:false
+            data2:false,
+            userId:false,
       };
    }  
     componentWillMount(){
 
 
         let data1 = store.getState().tempData;
+        let userId = store.getState().userInfo.userinfo.id;
 
         Course.info({id:data1.course.course_id})
-            .then((data)=>{
-            console.log(data)
+            .then((data)=>{            
             if(data){
                 this.setState({
                     data1:data1,
-                    data2:data
+                    data2:data,
+                    userId
                 })
             }
 
@@ -49,20 +54,42 @@ export default class Main extends Component {
                 console.log(data)
             })
     }
+    handleBuy(){
+        console.log('buy')
+        Order.submit({
+            userid:1,
+            
+        })
+        .then((data)=>{
+            console.log(data)
+        })
+    }
+    addShoppingCar(){
+        console.log(this.state)
+        ShoppingCar.add(this.state.userId,{
+            goods_id:this.state.data1.goods_id,
+            goods_num:1,
+        })
+        .then((data)=>{
+            console.log(data)
+        })
+
+
+        this.props.navigation.navigate('ShoppingCar',this.state.data1)
+    }
   render() {
         let url = "http://19appsvideo.oss-cn-shanghai.aliyuncs.com/Act-ss-mp4-ld/f610538208314290a960684486a3c9b5/%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E8%A7%86%E9%A2%91.mp4"
     return (
       <View style={styles.container}>
           <View  style={styles.top}>
               <View style={styles.videoWrap}>
-                  <Video
-                    source={{uri:url}}
-                    style={styles.video}
-                    resizeMode="cover"
-                    repeat={true}
-                    muted={false}
-                    paused={false}
-                  />
+              <VideoPlayer
+                video={{ uri: url }}
+                videoWidth={375}
+                videoHeight={210}
+                duration={0}
+                ref={r => this.player = r}
+                />
 
               </View>
               <View style={styles.videoTool}>
@@ -291,7 +318,7 @@ export default class Main extends Component {
                 <Image resizeMode='contain' style={styles.tipCart} source={require('../../statics/img/add_cart.png')} />               
               </View>
               <View style={styles.tipButtonTextWrap}>
-                <Text style={styles.tipButtonText}>
+                <Text onPress={()=>{this.handleBuy()}} style={styles.tipButtonText}>
                   立即购买
                 </Text>
               </View>

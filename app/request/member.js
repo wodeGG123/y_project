@@ -17,6 +17,7 @@ Member.Login = (data)=>{
 		    "isToken":true
 		})
 		.then((data)=>{
+			console.log(data)
 			  if(data.msg == 'failed'){
 		        Alert.alert(
 		          '用户名密码或错误！',
@@ -28,6 +29,7 @@ Member.Login = (data)=>{
 		        )
 		        return false
 		      }else{
+				  
 				storage.save({
 					key:'userInfo',
 					data:data.data

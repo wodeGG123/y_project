@@ -16,10 +16,7 @@ const styles = StyleSheet.create({
       backgroundColor:'#f0f0f0',
   },
     scrollViewWrap:{
-        paddingTop:10
-    },
-    block:{
-
+        paddingTop:10,
         width:deviceWidth,
         paddingBottom: 15,
         paddingLeft:15,
@@ -39,14 +36,17 @@ const styles = StyleSheet.create({
 
     },
     questionTitle:{
-
+        flex:4,
     },
     questionTitleText:{
         fontSize: 16,
         color: Theme.textBlack1,
     },
     questionButtonWrap:{
-      height:22,
+        height:22,
+        flex:1,  
+        flexDirection:'row',
+        justifyContent: 'flex-end'     
     },
     questionButton:{
         borderWidth:1,

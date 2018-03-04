@@ -201,24 +201,6 @@ class CartBlock extends Component {
             target:'初三',
             price:'388.00',
             url:'',
-        },{
-            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-            title:'《妖猫传》终极海报绘制报绘制',
-            target:'初三',
-            price:'388.00',
-            url:'',
-        },{
-            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-            title:'《妖猫传》终极海报绘制报绘制',
-            target:'初三',
-            price:'388.00',
-            url:'',
-        },{
-            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-            title:'《妖猫传》终极海报绘制报绘制',
-            target:'初三',
-            price:'388.00',
-            url:'',
         },]
     }
 
@@ -232,7 +214,6 @@ class CartBlock extends Component {
         this.props.navigation.navigate('NewsInfo')
     }
     render() {
-
         return (<View style={[styles.cartBlockWrap,this.props.style]}>
                 {
                     this.props.data.map((obj,index)=>{
@@ -247,12 +228,12 @@ class CartBlock extends Component {
                             <View onPress={()=>{this.handlePress()}} style={styles.cartBlockItemImageWrap}>
                                 <Image
                                     style={styles.cartBlockItemImage}
-                                    source={{uri: obj.img}}
+                                    source={{uri: obj.goods_thumb.indexOf('http://')>0?obj.goods_thumb:API.DOMAIN+obj.goods_thumb}}
                                 />
                             </View>
                             <View style={styles.cartBlockItemRight}>
                                 <View style={styles.cartBlockItemTitleWrap}>
-                                    <Text style={styles.cartBlockItemTitle}>{obj.title}</Text>
+                                    <Text style={styles.cartBlockItemTitle}>{obj.goods_name}</Text>
                                 </View>
                                 <View style={styles.cartBlockItemTextWrap}>
                                     <Text style={styles.cartBlockItemText}>

@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     listWrap:{
         paddingLeft: 15,
         paddingRight: 15,
+        paddingTop:15,
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',

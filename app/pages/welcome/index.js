@@ -8,6 +8,7 @@ import {
 import styles from './styles.js';
 
 import {Action_setUserInfo} from '../../actions/member.js'
+import Member from '../../request/member.js'
 
 export default class Main extends Component {
    constructor(props){
@@ -19,6 +20,8 @@ export default class Main extends Component {
   componentWillMount() {
 
    
+
+
     //添加获取不到值的方法
     // storage.sync = Object.assign(storage.sync,{userInfo(){
     //   storage.save({
@@ -26,6 +29,7 @@ export default class Main extends Component {
     //         data: false
     //       });
     //  }})
+    // Member.LoginOut()
     storage.sync = {userInfo(){
       storage.save({
             key: 'userInfo',
