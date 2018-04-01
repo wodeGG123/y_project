@@ -102,6 +102,10 @@ export default class Main extends Component {
                       <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-create-outline'/>
                       <Text onPress={()=>{this.props.navigation.navigate('Setting')}} style={styles.itemText}>设置</Text>
                   </View>
+                  <View style={styles.item}>
+                      <Icon style={styles.itemIcon} color="#333333" size={24} name='ios-create-outline'/>
+                      <Text onPress={()=>{this.props.navigation.navigate('Agent')}} style={styles.itemText}>分享代理链接</Text>
+                  </View>
               </View>
           </View>
           </View>

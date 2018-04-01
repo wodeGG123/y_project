@@ -56,12 +56,22 @@ export default class Main extends Component {
     }
     handleBuy(){
         console.log('buy')
+        console.log(this.state)
         Order.submit({
-            userid:1,
-            
+            userid:this.state.userId,
+            goods:[
+                {
+                    id:this.state.data1.goods_id,
+                    attrs:{},
+                    num:1
+                }
+            ]
         })
         .then((data)=>{
             console.log(data)
+            if(data){
+                this.props.navigation.navigate('MyOrder')
+            }
         })
     }
     addShoppingCar(){

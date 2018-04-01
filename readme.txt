@@ -1,5 +1,6 @@
 简单需求：https://modao.cc/app/CLFBZt9GuU22kLt58PwbqDfnYa7gQGI
 API：http://doc.19apps.com/index.php?s=/2&page_id=10
+支付系统：https://coding.net/u/pingplusplus/p/pingpp-react-native/git  https://www.pingxx.com/docs/downloads
 DOMAIN：http://www.lms.19apps.com/api/member/reg
 导航：react-natvigation   教程：http://blog.csdn.net/u013718120/article/details/72357698 || https://reactnavigation.org/docs/intro/quick-start
 react-native版本：0.44.3
@@ -11,9 +12,7 @@ x-code : 9.2
 
 
 剩余：
-0.课程搜索
 1.购物车
 2.课程购买
-3.课程播放器
 4.课程问答
 5.安卓版本

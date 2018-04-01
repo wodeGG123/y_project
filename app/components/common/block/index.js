@@ -264,78 +264,52 @@ CartBlock.contextTypes = {
 class OrderBlock extends Component {
 
     static defaultProps = {
-        data:[{
-            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-            title:'《妖猫传》终极海报绘制报绘制',
-            fee:'388.00',
-            url:'',
-        },{
-            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-            title:'《妖猫传》终极海报绘制报绘制',
-            fee:'388.00',
-            url:'',
-        },{
-            img:'http://www.sobeycollege.com/uploadfile/2016/0426/20160426020857843.jpg',
-            title:'《妖猫传》终极海报绘制报绘制',
-            fee:'388.00',
-            url:'',
-        },]
+        data:false
     }
-
     constructor(props){
         super(props);
         this.state = {
 
         };
     }
+    handlePress(){
 
+    }
     render() {
-
-        return (<View style={[styles.orderBlockWrap,this.props.style]}>
-                {
-                    this.props.data.map((obj,index)=>{
-                        return (<View key={index} style={styles.orderBlockItem}>
-                            <View style={styles.orderBlockItemTop}>
-                                <Text  style={styles.orderBlockItemTopText}>订单编号：1234521531643</Text>
-                            </View>
-                            <View style={styles.orderBlockItemMid}>
-                                <View style={styles.orderBlockItemImageWrap}>
-                                    <Image
-                                        style={styles.orderBlockItemImage}
-                                        source={{uri: obj.img}}
-                                    />
-                                </View>
-                                <View style={styles.orderBlockItemRight}>
-                                    <View style={styles.orderBlockItemTitleWrap}>
-                                        <Text style={styles.orderBlockItemTitle}>{obj.title}</Text>
-                                    </View>
-                                    <View style={styles.orderBlockItemTextWrap}>
-                                        <Text style={styles.orderBlockItemText}>
-                                            实付：￥{obj.fee}
-                                        </Text>
-                                    </View>
-                                </View>
-                            </View>
-                            <View style={styles.orderBlockItemBottom}>
-                                <View style={styles.orderBlockItemBottomTextWrap}>
-                                    <Text style={styles.orderBlockItemBottomText}>总价：￥388.00</Text>
-                                </View>
-                                <View style={styles.orderBlockItemBottomButtonWrap}>
-                                    <Button style={styles.orderBlockItemBottomButton} textStyle={styles.orderBlockItemBottomButtonText}>立即支付</Button>
-                                </View>
-                            </View>
-
-                        </View>)
-                    })
-                }
-
+        var {data} = this.props;
+        return (data&&<View style={styles.orderBlockItem}>
+            <View style={styles.orderBlockItemTop}>
+                <Text style={styles.orderBlockItemTopText}>订单编号：{data.trade_sn}</Text>
+            </View>
+            <View style={styles.orderBlockItemMid}>
+                <View style={styles.orderBlockItemImageWrap}>
+                    <Image
+                        style={styles.orderBlockItemImage}
+                        source={{uri: data.goods[0].goods_info.goods_thumb.indexOf('http://')>0?data.goods[0].goods_info.goods_thumb:API.DOMAIN+data.goods[0].goods_info.goods_thumb}}
+                    />
+                </View>
+                <View style={styles.orderBlockItemRight}>
+                    <View style={styles.orderBlockItemTitleWrap}>
+                        <Text style={styles.orderBlockItemTitle}>{data.goods[0].goods_info.goods_name}</Text>
+                    </View>
+                    <View style={styles.orderBlockItemTextWrap}>
+                        <Text style={styles.orderBlockItemText}>
+                            实付：￥{data.price}
+                        </Text>
+                    </View>
+                </View>
+            </View>
+            <View style={styles.orderBlockItemBottom}>
+                <View style={styles.orderBlockItemBottomTextWrap}>
+                    <Text style={styles.orderBlockItemBottomText}>总价：￥{data.price}</Text>
+                </View>
+                <View style={styles.orderBlockItemBottomButtonWrap}>
+                    <Button onPress={()=>{this.handlePress()}} style={styles.orderBlockItemBottomButton} textStyle={styles.orderBlockItemBottomButtonText}>立即支付</Button>
+                </View>
             </View>
 
-        );
+        </View>);
     }
-}
-OrderBlock.contextTypes = {
-    store: React.PropTypes.object
 }
 
 export {UDBlockList,UDBlock, LRBlock,CartBlock, OrderBlock}

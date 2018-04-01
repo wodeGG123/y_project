@@ -1,0 +1,20 @@
+html{
+    font-size: 62.5%
+}
+.wrap{
+    
+}
+.wrap h1{
+    padding-top: 10px;
+    font-size:1.6rem; 
+    text-align: center;
+    color: #333333;
+}
+.wrap p{
+    font-size: 1rem;
+    text-align: center;
+    color: #999999;
+}
+.content img{
+    max-width: 90%;
+}

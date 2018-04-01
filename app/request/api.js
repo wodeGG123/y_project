@@ -14,6 +14,7 @@ let API = {
 	ADD_SHOPPINGCART:'api/cart/cartin?accesstoken=',
 	SHOPPINGCART:'api/cart/cart',
 	ORDER_SUBMIT:'api/order/submit',
+	ORDER_LIST:'api/order/list',
 	QA_Q_ADD:'api/question/create',
 	QA_Q_LIST:'api/question/list',
 	QA_A_ADD:'api/answer/create',

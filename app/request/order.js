@@ -16,5 +16,15 @@ Order.submit = (params)=>{
         })
 }
 
+Order.list = (params)=>{
+    return Request.get(API.ORDER_LIST,params)
+        .then((data)=>{
+            if(data.msg == 'failed'){
+                return false
+            }else{
+                return data.data
+            }
+        })
+}
 
 export default Order

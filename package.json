@@ -12,6 +12,7 @@
     "moment": "^2.20.1",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.3",
+    "react-native-qrcode": "^0.2.6",
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-storage": "^0.2.2",
     "react-native-swiper": "^1.5.13",

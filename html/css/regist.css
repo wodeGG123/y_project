@@ -1,0 +1,83 @@
+input::-webkit-input-placeholder{
+    color:#eeeeee;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:#eeeeee;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:#eeeeee;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    color:#eeeeee;
+}
+
+
+.regist-wrap{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../img/regist_back.jpg');
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    padding: 0 30px;
+}
+.regist-wrap h1{
+    text-align: center;
+    color: #eeeeee;
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+.item{
+    margin-bottom: 20px;
+}
+.input-wrap{
+    height: 50px;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 25px;
+}
+.input-wrap input{
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-tap-highlight-color: none;
+    color: #eeeeee;
+    font-size: 1rem;
+    width: 85%;
+}
+.code-button{
+    display: block;
+    width: 120px;
+    height: 50px;
+    border-radius: 25px;
+    line-height: 50px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #24ae8c;
+    text-align: center;
+}
+.act{
+    color: #ccc;
+}
+.button-wrap{
+    margin-top: 50px;
+}
+.button-wrap .button{
+    display: block;
+    text-align: center;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #fff;
+    font-size: 1.2rem;
+    color:#24ae8c;
+    text-decoration: none;
+    line-height: 50px;
+}

@@ -22,6 +22,7 @@ import CourseInfo from '../pages/courseInfo/index.js'
 import ShoppingCar from '../pages/shoppingCar/index.js'
 import MineIndex from '../pages/mine/index.js'
 import MyOrder from '../pages/order/index.js'
+import Agent from '../pages/agent/index.js'
 import LatestStudy from '../pages/latestStudy/index.js'
 import Setting from '../pages/setting/index.js'
 import Question from '../pages/question/index.js'
@@ -125,6 +126,12 @@ const Mine = StackNavigator({
     },
     ResetPassword : {
         screen: ResetPassword,
+        navigationOptions: {
+            header:null
+        },
+    },
+    Agent : {
+        screen: Agent,
         navigationOptions: {
             header:null
         },
